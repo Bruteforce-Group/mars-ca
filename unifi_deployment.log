@@ -1,0 +1,58 @@
+2025-09-18 18:32:41,586 - INFO - Starting comprehensive policy deployment to Mars controller
+2025-09-18 18:32:41,942 - ERROR - Authentication failed: 401 - {"error":{"code":401,"message":"Unauthorized"}}
+2025-09-18 18:32:41,943 - ERROR - Failed to authenticate with controller
+2025-09-18 18:35:05,499 - ERROR - Authentication failed on all attempted ports and methods
+2025-09-18 18:35:05,499 - ERROR - Please verify:
+2025-09-18 18:35:05,499 - ERROR -   1. Controller hostname is correct
+2025-09-18 18:35:05,499 - ERROR -   2. Username and password are valid
+2025-09-18 18:35:05,499 - ERROR -   3. API key is valid and has proper permissions
+2025-09-18 18:35:05,499 - ERROR -   4. Controller is accessible from this network
+2025-09-19 00:52:13,348 - ERROR - No authentication credentials provided
+2025-09-19 00:55:06,182 - INFO - Starting comprehensive policy deployment to Mars controller
+2025-09-19 00:55:07,998 - ERROR - Authentication failed on all attempted ports and methods
+2025-09-19 00:55:07,998 - ERROR - Please verify:
+2025-09-19 00:55:07,998 - ERROR -   1. Controller hostname is correct
+2025-09-19 00:55:07,998 - ERROR -   2. Username and password are valid
+2025-09-19 00:55:07,998 - ERROR -   3. API key is valid and has proper permissions
+2025-09-19 00:55:07,998 - ERROR -   4. Controller is accessible from this network
+2025-09-19 00:55:07,998 - ERROR - Failed to authenticate with controller
+2025-09-19 00:56:51,457 - INFO - Starting comprehensive policy deployment to Mars controller
+2025-09-19 00:56:53,102 - ERROR - Authentication failed on all attempted ports and methods
+2025-09-19 00:56:53,103 - ERROR - Please verify:
+2025-09-19 00:56:53,103 - ERROR -   1. Controller hostname is correct
+2025-09-19 00:56:53,103 - ERROR -   2. Username and password are valid
+2025-09-19 00:56:53,103 - ERROR -   3. API key is valid and has proper permissions
+2025-09-19 00:56:53,103 - ERROR -   4. Controller is accessible from this network
+2025-09-19 00:56:53,103 - ERROR - Failed to authenticate with controller
+2025-09-19 01:02:43,874 - INFO - Starting comprehensive policy deployment to Mars controller
+2025-09-19 01:02:46,954 - ERROR - Authentication failed on all attempted ports and methods
+2025-09-19 01:02:46,954 - ERROR - Please verify:
+2025-09-19 01:02:46,954 - ERROR -   1. Controller hostname is correct
+2025-09-19 01:02:46,954 - ERROR -   2. Username and password are valid
+2025-09-19 01:02:46,955 - ERROR -   3. API key is valid and has proper permissions
+2025-09-19 01:02:46,955 - ERROR -   4. Controller is accessible from this network
+2025-09-19 01:02:46,955 - ERROR - Failed to authenticate with controller
+2025-09-19 01:14:16,202 - INFO - Starting comprehensive policy deployment to Mars controller
+2025-09-19 01:14:18,010 - ERROR - Authentication failed on all attempted ports and methods
+2025-09-19 01:14:18,011 - ERROR - Please verify:
+2025-09-19 01:14:18,011 - ERROR -   1. Controller hostname is correct
+2025-09-19 01:14:18,011 - ERROR -   2. Username and password are valid
+2025-09-19 01:14:18,011 - ERROR -   3. API key is valid and has proper permissions
+2025-09-19 01:14:18,011 - ERROR -   4. Controller is accessible from this network
+2025-09-19 01:14:18,011 - ERROR - Failed to authenticate with controller
+2025-09-19 01:17:32,123 - INFO - Starting comprehensive policy deployment to Mars controller
+2025-09-19 01:17:34,013 - ERROR - Authentication failed on all attempted ports and methods
+2025-09-19 01:17:34,013 - ERROR - Please verify:
+2025-09-19 01:17:34,013 - ERROR -   1. Controller hostname is correct
+2025-09-19 01:17:34,013 - ERROR -   2. Username and password are valid
+2025-09-19 01:17:34,013 - ERROR -   3. API key is valid and has proper permissions
+2025-09-19 01:17:34,013 - ERROR -   4. Controller is accessible from this network
+2025-09-19 01:17:34,013 - ERROR - Failed to authenticate with controller
+2025-09-19 01:17:54,672 - INFO - Starting comprehensive policy deployment to Mars controller
+2025-09-19 01:17:56,859 - ERROR - Authentication failed on all attempted ports and methods
+2025-09-19 01:17:56,860 - ERROR - Please verify:
+2025-09-19 01:17:56,860 - ERROR -   1. Controller hostname is correct
+2025-09-19 01:17:56,860 - ERROR -   2. Username and password are valid
+2025-09-19 01:17:56,860 - ERROR -   3. API key is valid and has proper permissions
+2025-09-19 01:17:56,860 - ERROR -   4. Controller is accessible from this network
+2025-09-19 01:17:56,860 - ERROR - Failed to authenticate with controller

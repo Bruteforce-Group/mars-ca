@@ -1,0 +1,333 @@
+{
+  "device_groups": {
+    "management_devices": {
+      "name": "Management Infrastructure",
+      "description": "Network management and infrastructure devices",
+      "vlan": 1,
+      "members": [
+        {
+          "type": "device_type",
+          "match": "UCG-Fiber",
+          "auto_assign": true
+        },
+        {
+          "type": "device_type", 
+          "match": "UniFi Switch",
+          "auto_assign": true
+        },
+        {
+          "type": "device_type",
+          "match": "UniFi Access Point",
+          "auto_assign": true
+        },
+        {
+          "type": "mac_pattern",
+          "match": "24:5A:4C:*",
+          "description": "UniFi devices OUI"
+        }
+      ],
+      "policies": {
+        "internet_access": "full",
+        "bandwidth_limit": "unlimited",
+        "priority": "high",
+        "logging": "detailed"
+      }
+    },
+    "servers": {
+      "name": "Corporate Servers",
+      "description": "Internal servers and services",
+      "vlan": 10,
+      "members": [
+        {
+          "type": "hostname_pattern",
+          "match": "*.bozza.au"
+        },
+        {
+          "type": "hostname_pattern",
+          "match": "mars.*"
+        },
+        {
+          "type": "static_assignment",
+          "devices": ["192.168.22.1"]
+        }
+      ],
+      "policies": {
+        "internet_access": "full",
+        "bandwidth_limit": "unlimited", 
+        "priority": "high",
+        "logging": "detailed",
+        "intrusion_detection": "enabled"
+      }
+    },
+    "iphones": {
+      "name": "iPhone Devices",
+      "description": "Apple iPhone mobile devices",
+      "vlan": 20,
+      "members": [
+        {
+          "type": "device_fingerprint",
+          "match": "iPhone",
+          "auto_assign": true
+        },
+        {
+          "type": "mac_oui",
+          "match": ["28:37:37", "BC:52:B7", "9C:04:EB", "A4:83:E7"],
+          "description": "Apple device OUIs"
+        },
+        {
+          "type": "dhcp_option",
+          "option": "vendor_class_identifier",
+          "match": "*iPhone*"
+        }
+      ],
+      "policies": {
+        "internet_access": "full",
+        "bandwidth_limit": "50mbps_down_10mbps_up",
+        "priority": "medium_high",
+        "content_filter": "family_safe",
+        "logging": "standard"
+      }
+    },
+    "mac_computers": {
+      "name": "Mac Computers", 
+      "description": "Apple Mac computers and laptops",
+      "vlan": 20,
+      "members": [
+        {
+          "type": "device_fingerprint",
+          "match": "macOS",
+          "auto_assign": true
+        },
+        {
+          "type": "dhcp_option",
+          "option": "vendor_class_identifier", 
+          "match": "*Mac*"
+        },
+        {
+          "type": "hostname_pattern",
+          "match": "*.local"
+        }
+      ],
+      "policies": {
+        "internet_access": "full",
+        "bandwidth_limit": "100mbps_down_20mbps_up",
+        "priority": "medium_high",
+        "logging": "standard"
+      }
+    },
+    "cameras": {
+      "name": "Security Cameras",
+      "description": "IP cameras and surveillance equipment",
+      "vlan": 50,
+      "members": [
+        {
+          "type": "device_fingerprint",
+          "match": "camera",
+          "auto_assign": true
+        },
+        {
+          "type": "port_usage",
+          "ports": ["554", "80", "443", "8080"],
+          "description": "Common camera ports"
+        },
+        {
+          "type": "manufacturer",
+          "match": ["Hikvision", "Dahua", "Axis", "UniFi"]
+        }
+      ],
+      "policies": {
+        "internet_access": "restricted",
+        "allowed_destinations": ["time.nist.gov", "firmware_servers"],
+        "bandwidth_limit": "20mbps_down_5mbps_up",
+        "priority": "medium",
+        "logging": "detailed",
+        "block_p2p": true
+      }
+    },
+    "iot_apple": {
+      "name": "Apple IoT Devices",
+      "description": "Apple ecosystem IoT devices",
+      "vlan": 30,
+      "members": [
+        {
+          "type": "device_fingerprint",
+          "match": "Apple TV"
+        },
+        {
+          "type": "device_fingerprint",
+          "match": "HomePod"
+        },
+        {
+          "type": "device_fingerprint",
+          "match": "AirPort"
+        },
+        {
+          "type": "mac_oui",
+          "match": ["28:37:37", "BC:52:B7", "9C:04:EB"],
+          "exclude_types": ["iPhone", "iPad", "Mac"]
+        }
+      ],
+      "policies": {
+        "internet_access": "restricted",
+        "allowed_destinations": ["*.apple.com", "*.icloud.com", "*.akamai.net"],
+        "bandwidth_limit": "30mbps_down_5mbps_up",
+        "priority": "medium",
+        "logging": "standard"
+      }
+    },
+    "iot_tuya": {
+      "name": "Tuya IoT Devices",
+      "description": "Tuya-based smart home devices",
+      "vlan": 40,
+      "members": [
+        {
+          "type": "manufacturer",
+          "match": ["Tuya", "Smart Life"]
+        },
+        {
+          "type": "dhcp_option",
+          "option": "vendor_class_identifier",
+          "match": "*tuya*"
+        },
+        {
+          "type": "dns_query_pattern",
+          "match": "*.tuya*.com"
+        }
+      ],
+      "policies": {
+        "internet_access": "limited",
+        "allowed_destinations": ["*.tuya*.com", "*.tuyaus.com", "time.nist.gov"],
+        "bandwidth_limit": "5mbps_down_1mbps_up",
+        "priority": "low",
+        "logging": "detailed",
+        "block_p2p": true,
+        "content_filter": "iot_security"
+      }
+    },
+    "tesla": {
+      "name": "Tesla Vehicles",
+      "description": "Tesla electric vehicles and charging equipment",
+      "vlan": 60,
+      "members": [
+        {
+          "type": "manufacturer",
+          "match": "Tesla"
+        },
+        {
+          "type": "dhcp_option",
+          "option": "vendor_class_identifier",
+          "match": "*Tesla*"
+        },
+        {
+          "type": "hostname_pattern",
+          "match": "*tesla*"
+        }
+      ],
+      "policies": {
+        "internet_access": "limited",
+        "allowed_destinations": ["*.tesla.com", "*.teslamotors.com", "firmware.tesla.com"],
+        "bandwidth_limit": "10mbps_down_2mbps_up",
+        "priority": "medium",
+        "logging": "standard",
+        "scheduling": "automotive_hours"
+      }
+    },
+    "printers": {
+      "name": "Printers and Scanners",
+      "description": "Network printing and scanning devices",
+      "vlan": 70,
+      "members": [
+        {
+          "type": "device_type",
+          "match": "printer"
+        },
+        {
+          "type": "port_usage",
+          "ports": ["515", "631", "9100", "161"],
+          "description": "Common printer ports"
+        },
+        {
+          "type": "manufacturer",
+          "match": ["HP", "Canon", "Epson", "Brother", "Xerox"]
+        }
+      ],
+      "policies": {
+        "internet_access": "limited",
+        "allowed_destinations": ["*.hp.com", "*.canon.com", "*.epson.com", "firmware_servers"],
+        "bandwidth_limit": "5mbps_down_1mbps_up",
+        "priority": "low",
+        "logging": "standard",
+        "block_p2p": true
+      }
+    },
+    "guests": {
+      "name": "Guest Devices", 
+      "description": "Temporary guest access devices",
+      "vlan": 80,
+      "members": [
+        {
+          "type": "ssid_assignment",
+          "ssid": "Guest"
+        },
+        {
+          "type": "manual_assignment",
+          "description": "Manually assigned guest devices"
+        }
+      ],
+      "policies": {
+        "internet_access": "guest",
+        "bandwidth_limit": "25mbps_down_5mbps_up",
+        "priority": "low",
+        "content_filter": "strict",
+        "session_timeout": "4_hours",
+        "isolation": true,
+        "logging": "detailed"
+      }
+    },
+    "quarantine": {
+      "name": "Quarantine Zone",
+      "description": "Isolated devices for security analysis",
+      "vlan": 90,
+      "members": [
+        {
+          "type": "threat_detection",
+          "auto_assign": true
+        },
+        {
+          "type": "manual_assignment",
+          "description": "Manually quarantined devices"
+        }
+      ],
+      "policies": {
+        "internet_access": "blocked",
+        "allowed_destinations": ["security_update_servers"],
+        "bandwidth_limit": "1mbps_down_1mbps_up",
+        "priority": "lowest", 
+        "isolation": true,
+        "logging": "comprehensive",
+        "deep_packet_inspection": true
+      }
+    }
+  },
+  "classification_rules": {
+    "automatic_classification": {
+      "enabled": true,
+      "confidence_threshold": 0.85,
+      "learning_mode": true,
+      "fallback_vlan": 90
+    },
+    "device_profiling": {
+      "dhcp_fingerprinting": true,
+      "http_user_agent": true,
+      "dns_analysis": true,
+      "traffic_analysis": true,
+      "manufacturer_database": true
+    },
+    "reclassification": {
+      "periodic_review": "weekly",
+      "behavior_analysis": true,
+      "threat_intelligence": true,
+      "admin_approval_required": false
+    }
+  }
+}

@@ -1,0 +1,526 @@
+{
+  "monitoring_policies": {
+    "network_performance": {
+      "bandwidth_monitoring": {
+        "name": "Bandwidth Utilization Monitoring",
+        "description": "Track bandwidth usage across all interfaces and VLANs",
+        "metrics": [
+          "total_throughput",
+          "per_vlan_utilization",
+          "per_device_usage",
+          "application_bandwidth_consumption",
+          "wan_link_utilization"
+        ],
+        "collection_interval": "30_seconds",
+        "retention_period": "90_days",
+        "alerting": {
+          "warning_threshold": "80%",
+          "critical_threshold": "95%",
+          "sustained_period": "5_minutes"
+        },
+        "visualization": {
+          "real_time_dashboard": true,
+          "historical_graphs": true,
+          "top_talkers": true
+        }
+      },
+      "latency_monitoring": {
+        "name": "Network Latency Monitoring",
+        "description": "Monitor end-to-end latency and jitter",
+        "test_targets": [
+          "8.8.8.8",
+          "1.1.1.1",
+          "192.168.10.1",
+          "mars.bozza.au"
+        ],
+        "test_interval": "60_seconds",
+        "metrics": [
+          "round_trip_time",
+          "packet_loss_percentage",
+          "jitter_measurement",
+          "path_mtu_discovery"
+        ],
+        "alerting": {
+          "latency_threshold": "100ms",
+          "packet_loss_threshold": "1%",
+          "jitter_threshold": "20ms"
+        }
+      },
+      "connection_monitoring": {
+        "name": "Connection State Monitoring",
+        "description": "Track active connections and session states",
+        "metrics": [
+          "total_active_connections",
+          "new_connections_per_second",
+          "connection_duration_distribution",
+          "failed_connection_attempts",
+          "tcp_retransmissions"
+        ],
+        "collection_interval": "30_seconds",
+        "alerting": {
+          "max_connections_warning": 10000,
+          "max_connections_critical": 15000,
+          "failed_attempts_threshold": "10_per_minute"
+        }
+      }
+    },
+    "security_monitoring": {
+      "threat_detection": {
+        "name": "Advanced Threat Detection",
+        "description": "Comprehensive threat monitoring and detection",
+        "detection_methods": [
+          "signature_based_ids",
+          "behavioral_analysis",
+          "anomaly_detection",
+          "reputation_filtering",
+          "geo_ip_analysis"
+        ],
+        "monitored_threats": [
+          "malware_communication",
+          "command_control_traffic",
+          "data_exfiltration",
+          "brute_force_attacks",
+          "port_scanning",
+          "ddos_attempts"
+        ],
+        "response_actions": {
+          "low_severity": "log_and_monitor",
+          "medium_severity": "alert_admin",
+          "high_severity": "quarantine_device",
+          "critical_severity": "block_and_isolate"
+        }
+      },
+      "vulnerability_monitoring": {
+        "name": "Vulnerability Assessment Monitoring",
+        "description": "Continuous vulnerability scanning and assessment",
+        "scan_frequency": {
+          "critical_devices": "daily",
+          "servers": "weekly", 
+          "user_devices": "monthly",
+          "iot_devices": "weekly"
+        },
+        "vulnerability_sources": [
+          "cve_database",
+          "vendor_advisories",
+          "threat_intelligence_feeds",
+          "zero_day_signatures"
+        ],
+        "remediation_tracking": {
+          "patch_management": true,
+          "configuration_hardening": true,
+          "access_control_updates": true
+        }
+      },
+      "compliance_monitoring": {
+        "name": "Security Compliance Monitoring",
+        "description": "Monitor adherence to security policies and standards",
+        "compliance_frameworks": [
+          "iso27001",
+          "nist_cybersecurity_framework",
+          "cis_controls",
+          "australian_privacy_principles"
+        ],
+        "monitored_controls": [
+          "access_control_compliance",
+          "encryption_usage",
+          "audit_log_completeness",
+          "incident_response_readiness",
+          "data_protection_measures"
+        ]
+      }
+    },
+    "device_monitoring": {
+      "health_monitoring": {
+        "name": "Device Health Monitoring", 
+        "description": "Monitor health and performance of network devices",
+        "monitored_devices": ["ucg_fiber", "switches", "access_points", "servers"],
+        "health_metrics": [
+          "cpu_utilization",
+          "memory_usage",
+          "storage_capacity",
+          "temperature",
+          "power_consumption",
+          "interface_status",
+          "firmware_version"
+        ],
+        "collection_method": "snmp_v3",
+        "collection_interval": "5_minutes",
+        "alerting": {
+          "cpu_warning": "80%",
+          "cpu_critical": "95%",
+          "memory_warning": "85%",
+          "memory_critical": "95%",
+          "temperature_warning": "70C",
+          "temperature_critical": "80C"
+        }
+      },
+      "inventory_monitoring": {
+        "name": "Device Inventory Monitoring",
+        "description": "Track device presence and changes",
+        "tracking": [
+          "new_device_detection",
+          "device_classification_changes",
+          "firmware_version_tracking",
+          "license_expiration_monitoring",
+          "warranty_status_tracking"
+        ],
+        "alerts": {
+          "unauthorized_device": "immediate",
+          "firmware_outdated": "weekly_report",
+          "license_expiring": "30_days_advance"
+        }
+      }
+    },
+    "application_monitoring": {
+      "service_monitoring": {
+        "name": "Critical Service Monitoring",
+        "description": "Monitor availability and performance of critical services",
+        "monitored_services": [
+          {
+            "service": "dns",
+            "hosts": ["192.168.1.1", "192.168.10.1"],
+            "port": 53,
+            "protocol": "udp",
+            "check_interval": "60_seconds"
+          },
+          {
+            "service": "dhcp",
+            "hosts": ["192.168.1.1"],
+            "check_method": "dhcp_discover",
+            "check_interval": "300_seconds"
+          },
+          {
+            "service": "web_management",
+            "hosts": ["192.168.1.1"],
+            "port": 443,
+            "protocol": "https",
+            "check_interval": "120_seconds"
+          },
+          {
+            "service": "mars_ca",
+            "hosts": ["mars.bozza.au"],
+            "port": 443,
+            "protocol": "https",
+            "check_interval": "300_seconds"
+          }
+        ],
+        "response_time_monitoring": true,
+        "availability_sla": "99.9%"
+      },
+      "application_performance": {
+        "name": "Application Performance Monitoring",
+        "description": "Monitor performance of network applications",
+        "applications": [
+          "video_conferencing",
+          "file_sharing",
+          "web_browsing",
+          "streaming_services",
+          "cloud_applications"
+        ],
+        "performance_metrics": [
+          "response_time",
+          "throughput",
+          "error_rate",
+          "user_experience_score"
+        ]
+      }
+    }
+  },
+  "logging_policies": {
+    "system_logging": {
+      "firewall_logging": {
+        "name": "Firewall Activity Logging",
+        "description": "Comprehensive firewall rule logging",
+        "log_levels": {
+          "blocked_connections": "info",
+          "allowed_connections": "debug",
+          "policy_violations": "warning",
+          "security_events": "alert"
+        },
+        "logged_fields": [
+          "timestamp",
+          "source_ip",
+          "destination_ip",
+          "source_port",
+          "destination_port",
+          "protocol",
+          "action_taken",
+          "rule_matched",
+          "packet_size",
+          "session_id"
+        ],
+        "retention": "180_days",
+        "compression": true
+      },
+      "authentication_logging": {
+        "name": "Authentication Event Logging",
+        "description": "Log all authentication attempts and changes",
+        "events": [
+          "user_login_attempts",
+          "device_authentication",
+          "certificate_validation",
+          "password_changes",
+          "account_lockouts",
+          "privilege_escalation"
+        ],
+        "log_format": "json",
+        "include_context": true,
+        "retention": "365_days"
+      },
+      "configuration_logging": {
+        "name": "Configuration Change Logging",
+        "description": "Track all configuration modifications",
+        "tracked_changes": [
+          "policy_modifications",
+          "user_account_changes",
+          "network_configuration",
+          "security_settings",
+          "firmware_updates"
+        ],
+        "include_diff": true,
+        "backup_before_change": true,
+        "approval_workflow_logging": true
+      }
+    },
+    "security_logging": {
+      "intrusion_detection_logging": {
+        "name": "IDS/IPS Event Logging",
+        "description": "Log all security detection events",
+        "event_categories": [
+          "signature_matches",
+          "behavioral_anomalies",
+          "reputation_hits",
+          "geo_blocking_events",
+          "rate_limiting_triggers"
+        ],
+        "severity_levels": ["low", "medium", "high", "critical"],
+        "include_packet_capture": {
+          "enabled": true,
+          "critical_events_only": false,
+          "capture_size": "1500_bytes",
+          "retention": "30_days"
+        }
+      },
+      "threat_intelligence_logging": {
+        "name": "Threat Intelligence Logging",
+        "description": "Log threat intelligence matches and updates",
+        "logged_events": [
+          "ioc_matches",
+          "feed_updates",
+          "reputation_changes",
+          "false_positive_reports"
+        ],
+        "correlation_enabled": true,
+        "external_feed_integration": true
+      }
+    },
+    "performance_logging": {
+      "bandwidth_usage_logging": {
+        "name": "Bandwidth Usage Logging",
+        "description": "Detailed bandwidth consumption logging",
+        "granularity": "per_device_per_application",
+        "aggregation_intervals": ["5_minutes", "1_hour", "1_day"],
+        "top_talkers_tracking": true,
+        "retention": "90_days"
+      },
+      "qos_performance_logging": {
+        "name": "QoS Performance Logging",
+        "description": "Log QoS policy effectiveness and performance",
+        "metrics": [
+          "queue_depths",
+          "packet_drops",
+          "delay_measurements",
+          "jitter_statistics",
+          "policy_hit_counts"
+        ],
+        "per_class_logging": true,
+        "sla_violation_tracking": true
+      }
+    }
+  },
+  "alerting_configuration": {
+    "alert_channels": {
+      "email": {
+        "enabled": true,
+        "recipients": [
+          "admin@bozza.au",
+          "security@bozza.au",
+          "network@bozza.au"
+        ],
+        "severity_filter": "medium_and_above",
+        "rate_limiting": "max_10_per_hour"
+      },
+      "syslog": {
+        "enabled": true,
+        "server": "192.168.10.100",
+        "port": 514,
+        "protocol": "tcp",
+        "facility": "local0",
+        "severity_mapping": {
+          "critical": "alert",
+          "high": "error",
+          "medium": "warning",
+          "low": "info"
+        }
+      },
+      "snmp_traps": {
+        "enabled": true,
+        "destinations": ["192.168.10.100", "192.168.10.101"],
+        "community": "network_monitoring",
+        "version": "v3",
+        "authentication": true
+      },
+      "webhook": {
+        "enabled": true,
+        "endpoints": [
+          {
+            "url": "https://monitoring.bozza.au/alerts",
+            "method": "POST",
+            "format": "json",
+            "authentication": "bearer_token"
+          }
+        ],
+        "retry_policy": {
+          "max_attempts": 3,
+          "backoff": "exponential"
+        }
+      }
+    },
+    "escalation_policies": {
+      "security_incidents": {
+        "name": "Security Incident Escalation",
+        "levels": [
+          {
+            "level": 1,
+            "timeout": "15_minutes",
+            "recipients": ["security_team"],
+            "methods": ["email", "syslog"]
+          },
+          {
+            "level": 2,
+            "timeout": "30_minutes",
+            "recipients": ["security_manager", "it_manager"],
+            "methods": ["email", "sms"]
+          },
+          {
+            "level": 3,
+            "timeout": "60_minutes",
+            "recipients": ["ciso", "cto"],
+            "methods": ["phone", "email"]
+          }
+        ]
+      },
+      "network_outages": {
+        "name": "Network Outage Escalation",
+        "levels": [
+          {
+            "level": 1,
+            "timeout": "5_minutes",
+            "recipients": ["network_operations"],
+            "methods": ["email", "sms"]
+          },
+          {
+            "level": 2,
+            "timeout": "15_minutes",
+            "recipients": ["network_manager"],
+            "methods": ["phone", "email"]
+          }
+        ]
+      }
+    }
+  },
+  "reporting_configuration": {
+    "scheduled_reports": {
+      "security_summary": {
+        "name": "Weekly Security Summary",
+        "schedule": "sunday_09:00",
+        "recipients": ["security_team", "management"],
+        "content": [
+          "threat_detection_summary",
+          "vulnerability_status",
+          "compliance_metrics",
+          "incident_summary",
+          "top_security_events"
+        ],
+        "format": "pdf"
+      },
+      "network_performance": {
+        "name": "Monthly Network Performance Report",
+        "schedule": "first_monday_09:00",
+        "recipients": ["network_team", "management"],
+        "content": [
+          "bandwidth_utilization_trends",
+          "latency_statistics",
+          "availability_metrics",
+          "capacity_planning_recommendations",
+          "qos_effectiveness"
+        ],
+        "format": "pdf_with_charts"
+      },
+      "device_health": {
+        "name": "Device Health Report",
+        "schedule": "daily_08:00",
+        "recipients": ["operations_team"],
+        "content": [
+          "device_status_summary",
+          "performance_metrics",
+          "maintenance_recommendations",
+          "firmware_update_status"
+        ],
+        "format": "html_email"
+      }
+    },
+    "custom_dashboards": {
+      "executive_dashboard": {
+        "name": "Executive Network Overview",
+        "refresh_interval": "5_minutes",
+        "widgets": [
+          "network_status_overview",
+          "security_threat_level",
+          "bandwidth_utilization",
+          "critical_alerts",
+          "compliance_status"
+        ]
+      },
+      "operations_dashboard": {
+        "name": "Network Operations Center",
+        "refresh_interval": "30_seconds",
+        "widgets": [
+          "real_time_traffic",
+          "device_health_matrix",
+          "active_alerts",
+          "top_applications",
+          "wan_link_status"
+        ]
+      },
+      "security_dashboard": {
+        "name": "Security Operations Center",
+        "refresh_interval": "10_seconds",
+        "widgets": [
+          "threat_map",
+          "active_incidents",
+          "blocked_connections",
+          "vulnerability_trends",
+          "quarantined_devices"
+        ]
+      }
+    }
+  },
+  "data_retention": {
+    "retention_policies": {
+      "security_logs": "7_years",
+      "performance_metrics": "2_years",
+      "configuration_changes": "5_years",
+      "authentication_logs": "3_years",
+      "network_flows": "6_months",
+      "packet_captures": "30_days"
+    },
+    "archival_settings": {
+      "compression_enabled": true,
+      "encryption_at_rest": true,
+      "offsite_backup": true,
+      "backup_frequency": "daily",
+      "backup_retention": "same_as_primary"
+    }
+  }
+}

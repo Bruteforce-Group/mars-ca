@@ -1,0 +1,378 @@
+{
+  "scheduling_policies": {
+    "time_based_access": {
+      "business_hours": {
+        "name": "Business Hours Access",
+        "description": "Enhanced access during business hours",
+        "schedule": {
+          "days": ["monday", "tuesday", "wednesday", "thursday", "friday"],
+          "time_range": "08:00-18:00",
+          "timezone": "Australia/Melbourne"
+        },
+        "device_groups": ["mac_computers", "servers"],
+        "policies": {
+          "bandwidth_boost": "200%",
+          "priority_elevation": "+1",
+          "content_filtering": "relaxed_business",
+          "monitoring_level": "standard"
+        }
+      },
+      "after_hours": {
+        "name": "After Hours Access",
+        "description": "Reduced access after business hours",
+        "schedule": {
+          "days": ["monday", "tuesday", "wednesday", "thursday", "friday"],
+          "time_range": "18:00-08:00",
+          "timezone": "Australia/Melbourne"
+        },
+        "device_groups": ["mac_computers", "iphones"],
+        "policies": {
+          "bandwidth_limit": "75%",
+          "content_filtering": "family_safe",
+          "monitoring_level": "enhanced"
+        }
+      },
+      "weekend_family": {
+        "name": "Weekend Family Time",
+        "description": "Family-friendly access on weekends",
+        "schedule": {
+          "days": ["saturday", "sunday"],
+          "time_range": "06:00-22:00",
+          "timezone": "Australia/Melbourne"
+        },
+        "device_groups": ["mac_computers", "iphones", "iot_apple"],
+        "policies": {
+          "bandwidth_limit": "100%",
+          "content_filtering": "strict_family",
+          "streaming_priority": "high",
+          "gaming_hours": "12:00-20:00"
+        }
+      },
+      "sleep_time": {
+        "name": "Sleep Time Restrictions",
+        "description": "Limited access during sleep hours",
+        "schedule": {
+          "days": ["sunday", "monday", "tuesday", "wednesday", "thursday"],
+          "time_range": "22:00-06:00",
+          "timezone": "Australia/Melbourne"
+        },
+        "device_groups": ["iphones", "mac_computers"],
+        "policies": {
+          "bandwidth_limit": "25%",
+          "content_filtering": "strict",
+          "social_media": "blocked",
+          "streaming": "limited_to_audio",
+          "notifications": "quiet_mode"
+        }
+      },
+      "weekend_sleep": {
+        "name": "Weekend Sleep Time",
+        "description": "Relaxed restrictions on weekend nights",
+        "schedule": {
+          "days": ["friday", "saturday"],
+          "time_range": "24:00-08:00",
+          "timezone": "Australia/Melbourne"
+        },
+        "device_groups": ["iphones", "mac_computers"],
+        "policies": {
+          "bandwidth_limit": "50%",
+          "content_filtering": "family_safe",
+          "streaming": "limited"
+        }
+      }
+    },
+    "device_specific_schedules": {
+      "iot_maintenance": {
+        "name": "IoT Maintenance Window",
+        "description": "Dedicated time for IoT device updates",
+        "schedule": {
+          "days": ["sunday"],
+          "time_range": "02:00-04:00",
+          "timezone": "Australia/Melbourne"
+        },
+        "device_groups": ["iot_tuya", "iot_apple", "cameras", "tesla", "printers"],
+        "policies": {
+          "update_priority": "high",
+          "bandwidth_boost": "300%",
+          "security_scanning": "enabled",
+          "firmware_updates": "automatic"
+        }
+      },
+      "camera_recording_boost": {
+        "name": "Camera Night Recording",
+        "description": "Enhanced bandwidth for night recording",
+        "schedule": {
+          "days": ["daily"],
+          "time_range": "18:00-06:00",
+          "timezone": "Australia/Melbourne"
+        },
+        "device_groups": ["cameras"],
+        "policies": {
+          "bandwidth_boost": "200%",
+          "storage_priority": "high",
+          "motion_sensitivity": "enhanced",
+          "recording_quality": "high"
+        }
+      },
+      "tesla_charging": {
+        "name": "Tesla Charging Schedule",
+        "description": "Optimal charging and update times",
+        "schedule": {
+          "days": ["daily"],
+          "time_range": "23:00-07:00",
+          "timezone": "Australia/Melbourne"
+        },
+        "device_groups": ["tesla"],
+        "policies": {
+          "bandwidth_boost": "500%",
+          "update_priority": "high",
+          "charging_optimization": "enabled",
+          "preconditioning": "enabled"
+        }
+      },
+      "printer_maintenance": {
+        "name": "Printer Maintenance",
+        "description": "Scheduled printer maintenance and updates",
+        "schedule": {
+          "days": ["saturday"],
+          "time_range": "03:00-05:00",
+          "timezone": "Australia/Melbourne"
+        },
+        "device_groups": ["printers"],
+        "policies": {
+          "maintenance_mode": "enabled",
+          "firmware_updates": "automatic",
+          "supply_monitoring": "enabled",
+          "cleaning_cycles": "automatic"
+        }
+      }
+    },
+    "bandwidth_scheduling": {
+      "peak_hours_throttling": {
+        "name": "Peak Hours Bandwidth Management",
+        "description": "Manage bandwidth during high usage",
+        "schedule": {
+          "days": ["monday", "tuesday", "wednesday", "thursday", "friday"],
+          "time_range": "19:00-23:00",
+          "timezone": "Australia/Melbourne"
+        },
+        "global_policies": {
+          "total_bandwidth_limit": "80%",
+          "streaming_concurrent_limit": 3,
+          "gaming_bandwidth_limit": "10mbps",
+          "cloud_sync_throttle": "5mbps",
+          "software_updates": "paused"
+        }
+      },
+      "off_peak_optimization": {
+        "name": "Off-Peak Bandwidth Optimization",
+        "description": "Maximize bandwidth during low usage",
+        "schedule": {
+          "days": ["daily"],
+          "time_range": "01:00-06:00",
+          "timezone": "Australia/Melbourne"
+        },
+        "global_policies": {
+          "total_bandwidth_limit": "100%",
+          "backup_operations": "enabled",
+          "software_updates": "automatic",
+          "cloud_sync": "unlimited",
+          "system_maintenance": "enabled"
+        }
+      },
+      "weekend_family_priority": {
+        "name": "Weekend Family Bandwidth Priority",
+        "description": "Prioritize family activities on weekends",
+        "schedule": {
+          "days": ["saturday", "sunday"],
+          "time_range": "10:00-22:00",
+          "timezone": "Australia/Melbourne"
+        },
+        "priority_adjustments": {
+          "streaming_services": "+2_priority",
+          "gaming_traffic": "+1_priority",
+          "video_calls": "+3_priority",
+          "social_media": "normal_priority",
+          "business_apps": "-1_priority"
+        }
+      }
+    },
+    "security_scheduling": {
+      "vulnerability_scanning": {
+        "name": "Weekly Vulnerability Scan",
+        "description": "Comprehensive security scanning",
+        "schedule": {
+          "days": ["sunday"],
+          "time_range": "01:00-05:00",
+          "timezone": "Australia/Melbourne"
+        },
+        "scope": "all_devices",
+        "actions": {
+          "port_scanning": "enabled",
+          "vulnerability_assessment": "enabled",
+          "compliance_check": "enabled",
+          "threat_intelligence_update": "enabled",
+          "quarantine_suspicious": "automatic"
+        }
+      },
+      "security_policy_update": {
+        "name": "Security Policy Updates",
+        "description": "Regular security policy and signature updates",
+        "schedule": {
+          "days": ["daily"],
+          "time_range": "03:00-04:00",
+          "timezone": "Australia/Melbourne"
+        },
+        "updates": {
+          "threat_signatures": "automatic",
+          "geo_ip_database": "automatic",
+          "malware_definitions": "automatic",
+          "reputation_database": "automatic"
+        }
+      },
+      "intrusion_detection_boost": {
+        "name": "Enhanced IDS During Peak Attack Times",
+        "description": "Increase security monitoring during common attack periods",
+        "schedule": {
+          "days": ["daily"],
+          "time_range": "14:00-18:00",
+          "timezone": "UTC"
+        },
+        "security_enhancements": {
+          "ids_sensitivity": "high",
+          "ips_mode": "aggressive",
+          "deep_packet_inspection": "maximum",
+          "behavioral_analysis": "enhanced",
+          "alert_threshold": "lowered"
+        }
+      }
+    },
+    "guest_access_scheduling": {
+      "guest_business_hours": {
+        "name": "Guest Business Hours Access",
+        "description": "Standard guest access during business hours",
+        "schedule": {
+          "days": ["monday", "tuesday", "wednesday", "thursday", "friday"],
+          "time_range": "08:00-18:00",
+          "timezone": "Australia/Melbourne"
+        },
+        "device_groups": ["guests"],
+        "policies": {
+          "session_duration": "4_hours",
+          "bandwidth_limit": "25mbps",
+          "content_filtering": "strict",
+          "captive_portal": "business_terms"
+        }
+      },
+      "guest_evening_restricted": {
+        "name": "Guest Evening Restrictions",
+        "description": "Limited guest access in evenings",
+        "schedule": {
+          "days": ["daily"],
+          "time_range": "18:00-22:00",
+          "timezone": "Australia/Melbourne"
+        },
+        "device_groups": ["guests"],
+        "policies": {
+          "session_duration": "2_hours",
+          "bandwidth_limit": "10mbps",
+          "content_filtering": "very_strict",
+          "streaming": "blocked"
+        }
+      },
+      "guest_night_blocked": {
+        "name": "Guest Night Access Blocked",
+        "description": "No guest access during night hours",
+        "schedule": {
+          "days": ["daily"],
+          "time_range": "22:00-08:00",
+          "timezone": "Australia/Melbourne"
+        },
+        "device_groups": ["guests"],
+        "policies": {
+          "access": "blocked",
+          "captive_portal": "maintenance_message"
+        }
+      }
+    },
+    "automation_triggers": {
+      "dynamic_policy_adjustment": {
+        "name": "Dynamic Policy Adjustment",
+        "description": "Automatically adjust policies based on network conditions",
+        "triggers": [
+          {
+            "condition": "wan_utilization > 90%",
+            "action": "activate_peak_hours_throttling",
+            "duration": "until_utilization < 70%"
+          },
+          {
+            "condition": "security_threat_level = high",
+            "action": "activate_enhanced_security_mode",
+            "duration": "24_hours"
+          },
+          {
+            "condition": "device_count > 50",
+            "action": "implement_strict_bandwidth_limits",
+            "duration": "until_device_count < 40"
+          }
+        ]
+      },
+      "seasonal_adjustments": {
+        "name": "Seasonal Policy Adjustments",
+        "description": "Adjust policies based on seasonal patterns",
+        "adjustments": [
+          {
+            "season": "school_holidays",
+            "changes": {
+              "family_time_extended": "08:00-22:00",
+              "bandwidth_family_boost": "150%",
+              "educational_content_priority": "high"
+            }
+          },
+          {
+            "season": "work_from_home_periods",
+            "changes": {
+              "business_hours_extended": "07:00-19:00",
+              "video_conferencing_priority": "highest",
+              "personal_traffic_limited": "50%"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "schedule_configuration": {
+    "global_settings": {
+      "timezone": "Australia/Melbourne",
+      "dst_adjustment": "automatic",
+      "overlap_resolution": "most_restrictive_wins",
+      "schedule_precision": "1_minute",
+      "grace_period": "5_minutes"
+    },
+    "notification_settings": {
+      "schedule_changes": {
+        "admin_notification": true,
+        "user_notification": false,
+        "advance_warning": "24_hours"
+      },
+      "policy_violations": {
+        "immediate_alert": true,
+        "summary_report": "daily",
+        "escalation_threshold": "5_violations_per_hour"
+      }
+    },
+    "override_settings": {
+      "admin_override": {
+        "enabled": true,
+        "authentication_required": true,
+        "temporary_override_duration": "2_hours",
+        "logging": "mandatory"
+      },
+      "emergency_override": {
+        "enabled": true,
+        "conditions": ["security_incident", "business_critical"],
+        "automatic_restoration": "after_incident_resolution"
+      }
+    }
+  }
+}

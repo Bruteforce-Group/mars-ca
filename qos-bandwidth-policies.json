@@ -1,0 +1,360 @@
+{
+  "qos_policies": {
+    "traffic_classes": {
+      "critical": {
+        "name": "Critical Network Traffic",
+        "priority": 1,
+        "bandwidth_guarantee": "20%",
+        "bandwidth_limit": "unlimited", 
+        "dscp_marking": "EF",
+        "applications": ["network_management", "routing_protocols", "dns", "dhcp"],
+        "device_groups": ["management_devices"],
+        "latency_target": "1ms",
+        "jitter_target": "0.5ms",
+        "packet_loss_target": "0%"
+      },
+      "real_time": {
+        "name": "Real-time Communications",
+        "priority": 2,
+        "bandwidth_guarantee": "15%",
+        "bandwidth_limit": "50%",
+        "dscp_marking": "AF41",
+        "applications": ["voip", "video_conferencing", "zoom", "teams", "webex"],
+        "device_groups": ["mac_computers", "iphones"],
+        "latency_target": "50ms", 
+        "jitter_target": "10ms",
+        "packet_loss_target": "0.1%"
+      },
+      "business_critical": {
+        "name": "Business Critical Applications",
+        "priority": 3,
+        "bandwidth_guarantee": "25%",
+        "bandwidth_limit": "70%",
+        "dscp_marking": "AF31",
+        "applications": ["office365", "gsuite", "salesforce", "database", "erp"],
+        "device_groups": ["servers", "mac_computers"],
+        "latency_target": "100ms",
+        "jitter_target": "20ms",
+        "packet_loss_target": "0.5%"
+      },
+      "standard": {
+        "name": "Standard Web Traffic",
+        "priority": 4,
+        "bandwidth_guarantee": "20%",
+        "bandwidth_limit": "80%",
+        "dscp_marking": "AF21",
+        "applications": ["http", "https", "email", "web_browsing"],
+        "device_groups": ["mac_computers", "iphones"],
+        "latency_target": "200ms",
+        "jitter_target": "50ms",
+        "packet_loss_target": "1%"
+      },
+      "multimedia": {
+        "name": "Multimedia Streaming",
+        "priority": 5,
+        "bandwidth_guarantee": "10%",
+        "bandwidth_limit": "60%",
+        "dscp_marking": "AF22",
+        "applications": ["netflix", "youtube", "spotify", "apple_music", "video_streaming"],
+        "device_groups": ["mac_computers", "iphones", "iot_apple"],
+        "latency_target": "300ms",
+        "jitter_target": "100ms",
+        "packet_loss_target": "2%"
+      },
+      "iot_services": {
+        "name": "IoT Device Communications",
+        "priority": 6,
+        "bandwidth_guarantee": "5%",
+        "bandwidth_limit": "20%",
+        "dscp_marking": "AF11",
+        "applications": ["iot_updates", "sensor_data", "home_automation"],
+        "device_groups": ["iot_apple", "iot_tuya", "cameras", "tesla"],
+        "latency_target": "500ms",
+        "jitter_target": "200ms",
+        "packet_loss_target": "3%"
+      },
+      "bulk_transfer": {
+        "name": "Bulk Data Transfer",
+        "priority": 7,
+        "bandwidth_guarantee": "5%",
+        "bandwidth_limit": "40%",
+        "dscp_marking": "AF12",
+        "applications": ["file_transfer", "backup", "software_updates", "cloud_sync"],
+        "device_groups": ["servers", "mac_computers"],
+        "latency_target": "1000ms",
+        "jitter_target": "500ms",
+        "packet_loss_target": "5%"
+      },
+      "default": {
+        "name": "Default Best Effort",
+        "priority": 8,
+        "bandwidth_guarantee": "0%",
+        "bandwidth_limit": "unlimited",
+        "dscp_marking": "BE",
+        "applications": ["unclassified"],
+        "device_groups": ["guests", "quarantine"],
+        "latency_target": "unlimited",
+        "jitter_target": "unlimited",
+        "packet_loss_target": "10%"
+      }
+    },
+    "bandwidth_profiles": {
+      "management_unlimited": {
+        "name": "Management Unlimited",
+        "download_limit": "unlimited",
+        "upload_limit": "unlimited",
+        "burst_allowance": "unlimited",
+        "device_groups": ["management_devices"],
+        "time_based": false
+      },
+      "server_high": {
+        "name": "Server High Bandwidth",
+        "download_limit": "500mbps",
+        "upload_limit": "500mbps",
+        "burst_allowance": "1gbps_for_60s",
+        "device_groups": ["servers"],
+        "time_based": false
+      },
+      "user_premium": {
+        "name": "User Premium Access",
+        "download_limit": "100mbps",
+        "upload_limit": "20mbps",
+        "burst_allowance": "200mbps_for_30s",
+        "device_groups": ["mac_computers"],
+        "time_based": {
+          "business_hours": {
+            "schedule": "mon-fri_08:00-18:00",
+            "download_limit": "200mbps",
+            "upload_limit": "50mbps"
+          },
+          "evening_hours": {
+            "schedule": "daily_18:00-23:00",
+            "download_limit": "100mbps",
+            "upload_limit": "20mbps"
+          },
+          "night_hours": {
+            "schedule": "daily_23:00-08:00",
+            "download_limit": "50mbps",
+            "upload_limit": "10mbps"
+          }
+        }
+      },
+      "mobile_standard": {
+        "name": "Mobile Device Standard",
+        "download_limit": "50mbps",
+        "upload_limit": "10mbps",
+        "burst_allowance": "100mbps_for_15s",
+        "device_groups": ["iphones"],
+        "time_based": {
+          "peak_hours": {
+            "schedule": "daily_18:00-22:00",
+            "download_limit": "25mbps",
+            "upload_limit": "5mbps"
+          }
+        }
+      },
+      "iot_apple_limited": {
+        "name": "Apple IoT Limited",
+        "download_limit": "30mbps",
+        "upload_limit": "5mbps",
+        "burst_allowance": "50mbps_for_10s",
+        "device_groups": ["iot_apple"],
+        "time_based": false
+      },
+      "iot_general_basic": {
+        "name": "General IoT Basic",
+        "download_limit": "5mbps",
+        "upload_limit": "1mbps",
+        "burst_allowance": "10mbps_for_5s",
+        "device_groups": ["iot_tuya"],
+        "time_based": false
+      },
+      "camera_medium": {
+        "name": "Security Camera Medium",
+        "download_limit": "20mbps",
+        "upload_limit": "5mbps",
+        "burst_allowance": "40mbps_for_10s",
+        "device_groups": ["cameras"],
+        "time_based": {
+          "recording_hours": {
+            "schedule": "daily_22:00-06:00",
+            "download_limit": "40mbps",
+            "upload_limit": "10mbps"
+          }
+        }
+      },
+      "tesla_automotive": {
+        "name": "Tesla Automotive",
+        "download_limit": "10mbps",
+        "upload_limit": "2mbps",
+        "burst_allowance": "50mbps_for_30s",
+        "device_groups": ["tesla"],
+        "time_based": {
+          "update_window": {
+            "schedule": "daily_02:00-05:00",
+            "download_limit": "100mbps",
+            "upload_limit": "10mbps"
+          }
+        }
+      },
+      "printer_basic": {
+        "name": "Printer Basic",
+        "download_limit": "5mbps",
+        "upload_limit": "1mbps",
+        "burst_allowance": "20mbps_for_5s",
+        "device_groups": ["printers"],
+        "time_based": false
+      },
+      "guest_restricted": {
+        "name": "Guest Restricted",
+        "download_limit": "25mbps",
+        "upload_limit": "5mbps",
+        "burst_allowance": "50mbps_for_10s",
+        "device_groups": ["guests"],
+        "per_user_limit": true,
+        "session_limit": "2gb_per_4hours",
+        "time_based": false
+      },
+      "quarantine_minimal": {
+        "name": "Quarantine Minimal",
+        "download_limit": "1mbps",
+        "upload_limit": "1mbps",
+        "burst_allowance": "none",
+        "device_groups": ["quarantine"],
+        "time_based": false
+      }
+    },
+    "application_specific_qos": {
+      "video_conferencing": {
+        "applications": ["zoom", "teams", "webex", "skype", "facetime"],
+        "priority": "real_time",
+        "guaranteed_bandwidth": "2mbps_per_session",
+        "latency_optimization": true,
+        "jitter_buffer": "adaptive",
+        "packet_duplication": false
+      },
+      "streaming_video": {
+        "applications": ["netflix", "youtube", "disney+", "apple_tv+"],
+        "priority": "multimedia",
+        "adaptive_bitrate": true,
+        "buffer_optimization": "aggressive",
+        "peak_time_throttling": {
+          "enabled": true,
+          "schedule": "daily_19:00-23:00",
+          "max_concurrent_streams": 3,
+          "quality_limit": "1080p"
+        }
+      },
+      "cloud_services": {
+        "applications": ["icloud", "google_drive", "dropbox", "onedrive"],
+        "priority": "standard",
+        "sync_optimization": true,
+        "background_throttling": {
+          "enabled": true,
+          "limit": "5mbps_during_business_hours"
+        }
+      },
+      "gaming": {
+        "applications": ["xbox_live", "playstation_network", "steam", "epic_games"],
+        "priority": "real_time",
+        "latency_optimization": true,
+        "packet_prioritization": "interactive_traffic",
+        "bandwidth_reservation": "5mbps"
+      },
+      "software_updates": {
+        "applications": ["windows_update", "macos_update", "ios_update", "app_store"],
+        "priority": "bulk_transfer",
+        "scheduling": {
+          "preferred_hours": "daily_02:00-06:00",
+          "throttle_during_peak": true,
+          "pause_during_meetings": true
+        }
+      }
+    },
+    "wan_optimization": {
+      "load_balancing": {
+        "enabled": true,
+        "algorithm": "weighted_round_robin",
+        "wan_interfaces": [
+          {
+            "interface": "wan1",
+            "weight": 70,
+            "failover_priority": 1,
+            "backup_interface": "wan2"
+          },
+          {
+            "interface": "wan2", 
+            "weight": 30,
+            "failover_priority": 2,
+            "backup_interface": "wan1"
+          }
+        ],
+        "health_monitoring": {
+          "ping_targets": ["8.8.8.8", "1.1.1.1"],
+          "interval": "30s",
+          "failure_threshold": 3,
+          "recovery_threshold": 3
+        }
+      },
+      "traffic_steering": {
+        "critical_traffic": {
+          "services": ["network_management", "voip", "video_conferencing"],
+          "preferred_wan": "wan1",
+          "never_failover": true
+        },
+        "bulk_traffic": {
+          "services": ["backup", "software_updates", "cloud_sync"],
+          "preferred_wan": "wan2",
+          "can_failover": true
+        },
+        "streaming_traffic": {
+          "services": ["netflix", "youtube", "streaming"],
+          "load_balance": true,
+          "sticky_sessions": true
+        }
+      }
+    }
+  },
+  "implementation_settings": {
+    "global_settings": {
+      "qos_engine": "hierarchical_token_bucket",
+      "bandwidth_calculation_method": "committed_information_rate",
+      "congestion_control": "active_queue_management",
+      "packet_buffer_size": "auto_adaptive",
+      "statistics_interval": "30s"
+    },
+    "monitoring": {
+      "real_time_graphs": true,
+      "historical_data_retention": "90_days",
+      "bandwidth_alerts": {
+        "threshold_warning": "80%",
+        "threshold_critical": "95%",
+        "notification_methods": ["email", "syslog", "snmp"]
+      },
+      "performance_metrics": {
+        "latency_monitoring": true,
+        "jitter_monitoring": true,
+        "packet_loss_monitoring": true,
+        "throughput_monitoring": true
+      }
+    },
+    "optimization_features": {
+      "adaptive_qos": {
+        "enabled": true,
+        "learning_period": "7_days",
+        "auto_adjustment": true,
+        "manual_override": true
+      },
+      "compression": {
+        "enabled": true,
+        "algorithms": ["lz4", "gzip"],
+        "exclude_encrypted_traffic": true
+      },
+      "caching": {
+        "enabled": true,
+        "cache_size": "10gb",
+        "cache_domains": ["microsoft.com", "apple.com", "google.com"]
+      }
+    }
+  }
+}

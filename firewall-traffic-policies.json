@@ -1,0 +1,276 @@
+{
+  "object_policies": {
+    "internet_access_policies": {
+      "full_internet": {
+        "name": "Full Internet Access",
+        "description": "Unrestricted internet access for trusted devices",
+        "action": "allow",
+        "source_groups": ["management_devices", "servers", "mac_computers"],
+        "destination": "internet",
+        "ports": "any",
+        "protocols": "any",
+        "logging": "connection_start_end",
+        "deep_packet_inspection": false,
+        "content_filtering": false
+      },
+      "restricted_internet": {
+        "name": "Restricted Internet Access", 
+        "description": "Limited internet access with content filtering",
+        "action": "allow",
+        "source_groups": ["iphones", "iot_apple", "cameras"],
+        "destination": "internet",
+        "ports": ["80", "443", "53", "123"],
+        "protocols": ["tcp", "udp"],
+        "logging": "connection_start_end",
+        "deep_packet_inspection": true,
+        "content_filtering": "family_safe",
+        "rate_limiting": "per_device_10mbps"
+      },
+      "limited_internet": {
+        "name": "Limited Internet Access",
+        "description": "Minimal internet access for IoT devices",
+        "action": "allow", 
+        "source_groups": ["iot_tuya", "tesla", "printers"],
+        "destination": "internet",
+        "ports": ["80", "443", "53", "123"],
+        "protocols": ["tcp", "udp"],
+        "logging": "all_connections",
+        "deep_packet_inspection": true,
+        "content_filtering": "iot_security",
+        "rate_limiting": "per_device_5mbps",
+        "allowed_destinations": "vendor_specific"
+      },
+      "guest_internet": {
+        "name": "Guest Internet Access",
+        "description": "Isolated internet access for guests",
+        "action": "allow",
+        "source_groups": ["guests"],
+        "destination": "internet", 
+        "ports": ["80", "443", "53"],
+        "protocols": ["tcp", "udp"],
+        "logging": "all_connections",
+        "deep_packet_inspection": true,
+        "content_filtering": "strict",
+        "rate_limiting": "per_device_25mbps",
+        "session_timeout": "4_hours",
+        "captive_portal": true
+      },
+      "quarantine_blocked": {
+        "name": "Quarantine Internet Block",
+        "description": "Block internet access for quarantined devices",
+        "action": "drop",
+        "source_groups": ["quarantine"],
+        "destination": "internet",
+        "ports": "any",
+        "protocols": "any",
+        "logging": "all_attempts",
+        "exceptions": ["security_update_servers", "time_servers"]
+      }
+    },
+    "inter_vlan_policies": {
+      "management_to_all": {
+        "name": "Management Access",
+        "description": "Management devices can access all VLANs",
+        "action": "allow",
+        "source_groups": ["management_devices"],
+        "destination_groups": ["all"],
+        "ports": ["22", "23", "80", "443", "161", "162"],
+        "protocols": ["tcp", "udp"],
+        "logging": "connection_start_end"
+      },
+      "servers_to_users": {
+        "name": "Server to User Communication",
+        "description": "Servers can communicate with user devices",
+        "action": "allow",
+        "source_groups": ["servers"],
+        "destination_groups": ["mac_computers", "iphones"],
+        "ports": ["80", "443", "22", "5000-5100", "8000-8100"],
+        "protocols": ["tcp", "udp"],
+        "logging": "connection_start_end"
+      },
+      "users_to_servers": {
+        "name": "User to Server Communication", 
+        "description": "User devices can access internal servers",
+        "action": "allow",
+        "source_groups": ["mac_computers", "iphones"],
+        "destination_groups": ["servers"],
+        "ports": ["80", "443", "22", "3389", "5900", "5000-5100"],
+        "protocols": ["tcp", "udp"],
+        "logging": "connection_start_end"
+      },
+      "users_to_printers": {
+        "name": "User to Printer Communication",
+        "description": "User devices can print",
+        "action": "allow",
+        "source_groups": ["mac_computers", "iphones"],
+        "destination_groups": ["printers"],
+        "ports": ["515", "631", "9100"],
+        "protocols": ["tcp", "udp"],
+        "logging": "connection_start_end"
+      },
+      "cameras_to_servers": {
+        "name": "Camera to Server Communication",
+        "description": "Cameras can send video to storage servers",
+        "action": "allow",
+        "source_groups": ["cameras"],
+        "destination_groups": ["servers"],
+        "ports": ["80", "443", "554", "8080"],
+        "protocols": ["tcp", "udp"],
+        "logging": "connection_start_end"
+      },
+      "dns_access": {
+        "name": "DNS Access",
+        "description": "All devices can access DNS servers",
+        "action": "allow",
+        "source_groups": ["all"],
+        "destination_groups": ["servers", "management_devices"],
+        "ports": ["53"],
+        "protocols": ["tcp", "udp"],
+        "logging": "none"
+      },
+      "ntp_access": {
+        "name": "NTP Access",
+        "description": "All devices can sync time",
+        "action": "allow",
+        "source_groups": ["all"],
+        "destination_groups": ["servers", "management_devices"],
+        "ports": ["123"],
+        "protocols": ["udp"],
+        "logging": "none"
+      },
+      "block_iot_to_iot": {
+        "name": "Block IoT Cross-Communication",
+        "description": "Prevent direct IoT device communication",
+        "action": "drop",
+        "source_groups": ["iot_tuya", "iot_apple", "cameras", "tesla", "printers"],
+        "destination_groups": ["iot_tuya", "iot_apple", "cameras", "tesla", "printers"],
+        "ports": "any",
+        "protocols": "any",
+        "logging": "all_attempts"
+      },
+      "quarantine_isolation": {
+        "name": "Quarantine Isolation",
+        "description": "Block all quarantine device communication",
+        "action": "drop",
+        "source_groups": ["quarantine"],
+        "destination_groups": ["all"],
+        "ports": "any", 
+        "protocols": "any",
+        "logging": "all_attempts",
+        "exceptions": ["management_devices"]
+      }
+    },
+    "security_policies": {
+      "threat_detection": {
+        "name": "Advanced Threat Detection",
+        "description": "Deep packet inspection and threat analysis",
+        "enabled": true,
+        "scope": "all_traffic",
+        "actions": {
+          "malware_detected": "quarantine",
+          "suspicious_behavior": "alert_admin",
+          "known_bad_ip": "block",
+          "ddos_detected": "rate_limit"
+        },
+        "integrations": {
+          "threat_intelligence": true,
+          "geo_ip_blocking": ["CN", "RU", "KP"],
+          "reputation_filtering": true
+        }
+      },
+      "intrusion_prevention": {
+        "name": "Intrusion Prevention System",
+        "description": "Block known attack patterns",
+        "enabled": true,
+        "rules": [
+          {
+            "name": "Block SQL Injection",
+            "pattern": "sql_injection_patterns",
+            "action": "drop_and_log"
+          },
+          {
+            "name": "Block XSS Attempts",
+            "pattern": "xss_patterns", 
+            "action": "drop_and_log"
+          },
+          {
+            "name": "Block Brute Force",
+            "pattern": "brute_force_login",
+            "action": "temporary_block_15min"
+          }
+        ]
+      },
+      "data_loss_prevention": {
+        "name": "Data Loss Prevention",
+        "description": "Monitor and prevent data exfiltration",
+        "enabled": true,
+        "monitored_data": ["credit_cards", "ssn", "private_keys"],
+        "action_on_detection": "block_and_alert",
+        "scope": ["servers", "mac_computers"]
+      }
+    },
+    "application_policies": {
+      "web_filtering": {
+        "name": "Web Content Filtering",
+        "categories": {
+          "family_safe": {
+            "blocked": ["adult", "gambling", "violence", "drugs", "malware"],
+            "allowed": ["business", "education", "entertainment", "social"]
+          },
+          "iot_security": {
+            "blocked": ["all"],
+            "allowed": ["vendor_updates", "time_servers", "specific_cloud_services"]
+          },
+          "strict": {
+            "blocked": ["social", "streaming", "gaming", "p2p"],
+            "allowed": ["basic_web", "email", "productivity"]
+          }
+        }
+      },
+      "application_control": {
+        "name": "Application Layer Control",
+        "rules": [
+          {
+            "name": "Block P2P on IoT",
+            "applications": ["bittorrent", "kazaa", "limewire"],
+            "source_groups": ["iot_tuya", "iot_apple", "cameras", "printers"],
+            "action": "block"
+          },
+          {
+            "name": "Limit Streaming Bandwidth",
+            "applications": ["netflix", "youtube", "spotify"],
+            "source_groups": ["iphones", "mac_computers"],
+            "action": "bandwidth_limit_50mbps"
+          },
+          {
+            "name": "Business Applications Priority",
+            "applications": ["office365", "gsuite", "zoom", "teams"],
+            "source_groups": ["mac_computers"],
+            "action": "high_priority"
+          }
+        ]
+      }
+    }
+  },
+  "policy_enforcement": {
+    "engine_settings": {
+      "inspection_mode": "flow_based",
+      "session_timeout": "3600",
+      "connection_limit_per_device": 1000,
+      "global_rate_limit": "1gbps",
+      "log_retention_days": 90
+    },
+    "alert_configuration": {
+      "email_notifications": true,
+      "syslog_server": "192.168.10.100",
+      "snmp_traps": true,
+      "webhook_alerts": "https://monitoring.bozza.au/alerts"
+    },
+    "policy_updates": {
+      "automatic_updates": true,
+      "threat_feed_updates": "hourly", 
+      "signature_updates": "daily",
+      "geo_ip_updates": "weekly"
+    }
+  }
+}
