@@ -1,0 +1,91 @@
+{
+  "timestamp": "2025-09-22T07:50:00Z",
+  "cleanup_type": "automated_excess_rule_removal",
+  "total_rules_before": 45,
+  "excess_rules_identified": 16,
+  "rules_removed": 16,
+  "rules_failed": 0,
+  "total_rules_after": 29,
+  "removed_rules": [
+    {
+      "name": "Enhanced_IPv4_Class_A_Private_Enhanced_WAN_IN",
+      "id": "68c7af4ffa94de25fbbd9b0a",
+      "ruleset": "WAN_IN"
+    },
+    {
+      "name": "Enhanced_IPv4_Class_A_Private_Enhanced_WAN_OUT",
+      "id": "68c7af4ffa94de25fbbd9b0d",
+      "ruleset": "WAN_OUT"
+    },
+    {
+      "name": "Enhanced_IPv4_Class_B_Private_Enhanced_WAN_IN",
+      "id": "68c7af4ffa94de25fbbd9b10",
+      "ruleset": "WAN_IN"
+    },
+    {
+      "name": "Enhanced_IPv4_Class_B_Private_Enhanced_WAN_OUT",
+      "id": "68c7af4ffa94de25fbbd9b13",
+      "ruleset": "WAN_OUT"
+    },
+    {
+      "name": "Enhanced_IPv4_Class_C_Private_Enhanced_WAN_IN",
+      "id": "68c7af50fa94de25fbbd9b16",
+      "ruleset": "WAN_IN"
+    },
+    {
+      "name": "Enhanced_IPv4_Class_C_Private_Enhanced_WAN_OUT",
+      "id": "68c7af50fa94de25fbbd9b19",
+      "ruleset": "WAN_OUT"
+    },
+    {
+      "name": "Enhanced_IPv4_Link_Local_Enhanced_WAN_IN",
+      "id": "68c7af50fa94de25fbbd9b1c",
+      "ruleset": "WAN_IN"
+    },
+    {
+      "name": "Enhanced_IPv4_Link_Local_Enhanced_WAN_OUT",
+      "id": "68c7af50fa94de25fbbd9b1f",
+      "ruleset": "WAN_OUT"
+    },
+    {
+      "name": "Enhanced_IPv4_Loopback_Enhanced_WAN_IN",
+      "id": "68c7af50fa94de25fbbd9b22",
+      "ruleset": "WAN_IN"
+    },
+    {
+      "name": "Enhanced_IPv4_Loopback_Enhanced_WAN_OUT",
+      "id": "68c7af50fa94de25fbbd9b25",
+      "ruleset": "WAN_OUT"
+    },
+    {
+      "name": "Enhanced_IPv4_Current_Network_Enhanced_WAN_IN",
+      "id": "68c7af51fa94de25fbbd9b28",
+      "ruleset": "WAN_IN"
+    },
+    {
+      "name": "Enhanced_IPv4_Current_Network_Enhanced_WAN_OUT",
+      "id": "68c7af51fa94de25fbbd9b2b",
+      "ruleset": "WAN_OUT"
+    },
+    {
+      "name": "Enhanced_IPv4_Multicast_Enhanced_WAN_IN",
+      "id": "68c7af51fa94de25fbbd9b2e",
+      "ruleset": "WAN_IN"
+    },
+    {
+      "name": "Enhanced_IPv4_Multicast_Enhanced_WAN_OUT",
+      "id": "68c7af51fa94de25fbbd9b31",
+      "ruleset": "WAN_OUT"
+    },
+    {
+      "name": "Enhanced_IPv4_Reserved_Enhanced_WAN_IN",
+      "id": "68c7af51fa94de25fbbd9b34",
+      "ruleset": "WAN_IN"
+    },
+    {
+      "name": "Enhanced_IPv4_Reserved_Enhanced_WAN_OUT",
+      "id": "68c7af51fa94de25fbbd9b37",
+      "ruleset": "WAN_OUT"
+    }
+  ]
+}

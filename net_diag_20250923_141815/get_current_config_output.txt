@@ -1,0 +1,93 @@
+🔍 Gathering Current Configuration from 192.168.22.194
+============================================================
+📊 Retrieving Configuration Data:
+  📋 Getting system_info...
+    ✅ Success - 1 items
+  📋 Getting networks...
+    ✅ Success - 5 items
+  📋 Getting firewall_groups...
+    ✅ Success - 6 items
+  📋 Getting firewall_rules...
+    ✅ Success - 38 items
+  📋 Getting devices...
+    ✅ Success - 5 items
+  📋 Getting clients...
+    ✅ Success - 11 items
+  📋 Getting sites...
+    ❌ Failed - 404
+  📋 Getting port_profiles...
+    ✅ Success - 0 items
+  📋 Getting wlan_groups...
+    ✅ Success - 2 items
+  📋 Getting wlans...
+    ✅ Success - 2 items
+
+💾 Configuration saved to: current_config_1758602856.json
+
+📈 Configuration Summary:
+========================================
+🖥️  Controller: mars
+📡 Model: UCGF.ipq9574.v4.4.0.ea17b6f.250806.2226
+🔧 Version: 9.5.12
+
+🌐 Networks (5 configured):
+   VLAN N/A: Telstra 1000/400 FTTP v1 (wan)
+   VLAN N/A: Telstra LTE v2 (wan)
+   VLAN N/A: Default (corporate)
+   VLAN N/A: WAN Magic (wan_magic)
+   VLAN N/A: One-Click VPN (remote-user-vpn)
+
+🔥 Firewall Groups (6 configured):
+   tailscale-derp-ips (address-group)
+   Management_Devices (address-group)
+   Corporate_Devices (address-group)
+   User_Devices (address-group)
+   IoT_Devices (address-group)
+   Guest_Devices (address-group)
+
+🛡️  Firewall Rules (38 configured):
+   ✅ Block_IPv4_Class_A_Private_WAN_IN (drop)
+   ✅ Block_IPv4_Class_A_Private_WAN_OUT (drop)
+   ✅ Block_IPv4_Class_B_Private_WAN_IN (drop)
+   ✅ Block_IPv4_Class_B_Private_WAN_OUT (drop)
+   ✅ Block_IPv4_Class_C_Private_WAN_IN (drop)
+   ✅ Block_IPv4_Class_C_Private_WAN_OUT (drop)
+   ✅ Block_IPv4_Link_Local_WAN_IN (drop)
+   ✅ Block_IPv4_Link_Local_WAN_OUT (drop)
+   ✅ Block_IPv4_Loopback_WAN_IN (drop)
+   ✅ Block_IPv4_Loopback_WAN_OUT (drop)
+   ✅ Block_IPv4_Current_Network_WAN_IN (drop)
+   ✅ Block_IPv4_Current_Network_WAN_OUT (drop)
+   ✅ Block_IPv4_Multicast_WAN_IN (drop)
+   ✅ Block_IPv4_Multicast_WAN_OUT (drop)
+   ✅ Block_IPv4_Reserved_WAN_IN (drop)
+   ✅ Block_IPv4_Reserved_WAN_OUT (drop)
+   ✅ Block_IPv4_Test_NET_1_WAN_IN (drop)
+   ✅ Block_IPv4_Test_NET_1_WAN_OUT (drop)
+   ✅ Block_IPv4_Test_NET_2_WAN_IN (drop)
+   ✅ Block_IPv4_Test_NET_2_WAN_OUT (drop)
+   ✅ Block_IPv4_Test_NET_3_WAN_IN (drop)
+   ✅ Block_IPv4_Test_NET_3_WAN_OUT (drop)
+   ✅ Block_IPv4_Benchmarking_WAN_IN (drop)
+   ✅ Block_IPv4_Benchmarking_WAN_OUT (drop)
+   ✅ Block_IPv6_All_WAN_IN (drop)
+   ✅ Block_IPv6_All_WAN_OUT (drop)
+   ✅ ALLOW: 172.16.6.0/24 IPv4 Subnet (accept)
+   ✅ ALLOW: 172.16.6.0/24 IPv4 Subnet (accept)
+   ✅ ALLOW: IPv6 Traffic LAN_IN (accept)
+   ✅ IoT_Internet_Restriction (accept)
+   ✅ Enhanced_Management_Access_Clean (accept)
+   ✅ Enhanced_Security_Scan_Clean (accept)
+   ✅ Policy_Engine_Management_Access (accept)
+   ✅ Policy_Engine_IoT_Restriction (accept)
+   ✅ Policy_Engine_Guest_Isolation (drop)
+   ✅ Policy_Engine_Management_Access (accept)
+   ✅ Policy_Engine_IoT_Restriction (accept)
+   ✅ Policy_Engine_Guest_Isolation (drop)
+
+📱 Network Devices (5 connected):
+   usw: 2
+   uap: 2
+   udm: 1
+
+👥 Client Devices (11 connected):

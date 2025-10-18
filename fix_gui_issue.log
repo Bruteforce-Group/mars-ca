@@ -1,0 +1,12 @@
+2025-09-22 10:55:18,686 - INFO - Successfully authenticated for GUI fix
+2025-09-22 10:55:18,686 - INFO - Removing problematic rules...
+2025-09-22 10:55:18,820 - INFO - ✅ Removed rule: Enhanced_Management_Access
+2025-09-22 10:55:19,850 - INFO - ✅ Removed rule: Enhanced_Security_Scan
+2025-09-22 10:55:20,887 - INFO - ✅ Removed rule: Zero_Trust_Default_Deny
+2025-09-22 10:55:21,889 - INFO - Rule removal completed: 3/3 rules removed
+2025-09-22 10:55:21,889 - INFO - Creating clean rules with proper format...
+2025-09-22 10:55:21,939 - INFO - ✅ Created clean rule: Enhanced_Management_Access_Clean
+2025-09-22 10:55:22,971 - INFO - ✅ Created clean rule: Enhanced_Security_Scan_Clean
+2025-09-22 10:55:23,973 - INFO - Clean rule creation completed: 2/2 rules created
+2025-09-22 10:55:23,973 - INFO - Verifying GUI fix...
+2025-09-22 10:55:23,986 - INFO - GUI fix verification completed - results saved to gui_fix_verification_20250922_105523.json

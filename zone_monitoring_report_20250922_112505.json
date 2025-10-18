@@ -1,0 +1,285 @@
+{
+  "timestamp": "2025-09-22T11:25:05.232205",
+  "monitoring_type": "zone_based_architecture",
+  "network_overview": {
+    "total_devices": 5,
+    "total_clients": 14,
+    "total_firewall_rules": 32,
+    "total_device_groups": 6
+  },
+  "zone_analysis": {
+    "Management_Zone": {
+      "device_count": 5,
+      "trust_level": "high",
+      "devices": [
+        {
+          "name": "USW Pro 8 PoE",
+          "type": "usw",
+          "ip": "192.168.22.250",
+          "mac": "0c:ea:14:1f:fa:ab",
+          "zone": "Management_Zone",
+          "trust_level": "high",
+          "classification_reason": "Network infrastructure device"
+        },
+        {
+          "name": "U7 Pro Max - NWQ",
+          "type": "uap",
+          "ip": "192.168.22.198",
+          "mac": "94:2a:6f:9e:c8:1e",
+          "zone": "Management_Zone",
+          "trust_level": "high",
+          "classification_reason": "Network infrastructure device"
+        },
+        {
+          "name": "USW Flex Mini",
+          "type": "usw",
+          "ip": "192.168.22.228",
+          "mac": "74:ac:b9:ab:e7:33",
+          "zone": "Management_Zone",
+          "trust_level": "high",
+          "classification_reason": "Network infrastructure device"
+        },
+        {
+          "name": "mars",
+          "type": "udm",
+          "ip": "124.187.49.228",
+          "mac": "1c:0b:8b:10:c3:ce",
+          "zone": "Management_Zone",
+          "trust_level": "high",
+          "classification_reason": "Network infrastructure device"
+        },
+        {
+          "name": "U7 Pro Max - NEQ",
+          "type": "uap",
+          "ip": "192.168.22.239",
+          "mac": "94:2a:6f:9e:d3:cc",
+          "zone": "Management_Zone",
+          "trust_level": "high",
+          "classification_reason": "Network infrastructure device"
+        }
+      ]
+    },
+    "Corporate_Zone": {
+      "device_count": 0,
+      "trust_level": "unknown",
+      "devices": []
+    },
+    "User_Zone": {
+      "device_count": 14,
+      "trust_level": "medium",
+      "devices": [
+        {
+          "name": "Unknown",
+          "mac": "28:70:4e:11:43:f7",
+          "ip": "192.168.22.251",
+          "is_guest": false,
+          "is_wired": true,
+          "zone": "User_Zone",
+          "trust_level": "medium",
+          "classification_reason": "User device"
+        },
+        {
+          "name": "BOZ - Shelly 3EM",
+          "mac": "68:25:dd:d2:55:50",
+          "ip": "192.168.22.199",
+          "is_guest": false,
+          "is_wired": false,
+          "zone": "User_Zone",
+          "trust_level": "medium",
+          "classification_reason": "User device"
+        },
+        {
+          "name": "BOZ - Apple TV Love Dungeon",
+          "mac": "c4:f7:c1:07:8f:39",
+          "ip": "192.168.22.233",
+          "is_guest": false,
+          "is_wired": false,
+          "zone": "User_Zone",
+          "trust_level": "medium",
+          "classification_reason": "User device"
+        },
+        {
+          "name": "Unknown",
+          "mac": "c8:d0:83:e4:75:33",
+          "ip": "192.168.22.212",
+          "is_guest": false,
+          "is_wired": true,
+          "zone": "User_Zone",
+          "trust_level": "medium",
+          "classification_reason": "User device"
+        },
+        {
+          "name": "Unknown",
+          "mac": "28:70:4e:11:30:d5",
+          "ip": "192.168.22.249",
+          "is_guest": false,
+          "is_wired": true,
+          "zone": "User_Zone",
+          "trust_level": "medium",
+          "classification_reason": "User device"
+        },
+        {
+          "name": "Unknown",
+          "mac": "00:e0:4c:68:00:e0",
+          "ip": "192.168.22.223",
+          "is_guest": false,
+          "is_wired": true,
+          "zone": "User_Zone",
+          "trust_level": "medium",
+          "classification_reason": "User device"
+        },
+        {
+          "name": "Unknown",
+          "mac": "b8:27:eb:51:40:b3",
+          "ip": "192.168.22.207",
+          "is_guest": false,
+          "is_wired": true,
+          "zone": "User_Zone",
+          "trust_level": "medium",
+          "classification_reason": "User device"
+        },
+        {
+          "name": "Unknown",
+          "mac": "28:70:4e:11:3d:dd",
+          "ip": "192.168.22.205",
+          "is_guest": false,
+          "is_wired": true,
+          "zone": "User_Zone",
+          "trust_level": "medium",
+          "classification_reason": "User device"
+        },
+        {
+          "name": "Unknown",
+          "mac": "28:70:4e:11:41:c2",
+          "ip": "192.168.22.213",
+          "is_guest": false,
+          "is_wired": true,
+          "zone": "User_Zone",
+          "trust_level": "medium",
+          "classification_reason": "User device"
+        },
+        {
+          "name": "BOZ - Aqara Doorbell",
+          "mac": "54:ef:44:72:19:6c",
+          "ip": "192.168.22.230",
+          "is_guest": false,
+          "is_wired": false,
+          "zone": "User_Zone",
+          "trust_level": "medium",
+          "classification_reason": "User device"
+        },
+        {
+          "name": "Unknown",
+          "mac": "8e:31:6a:16:a9:6a",
+          "ip": "192.168.22.240",
+          "is_guest": false,
+          "is_wired": true,
+          "zone": "User_Zone",
+          "trust_level": "medium",
+          "classification_reason": "User device"
+        },
+        {
+          "name": "Unknown",
+          "mac": "88:ae:dd:65:a9:c3",
+          "ip": "192.168.22.254",
+          "is_guest": false,
+          "is_wired": true,
+          "zone": "User_Zone",
+          "trust_level": "medium",
+          "classification_reason": "User device"
+        },
+        {
+          "name": "BOZ - ringring",
+          "mac": "2c:cf:67:76:ad:69",
+          "ip": "192.168.22.253",
+          "is_guest": false,
+          "is_wired": true,
+          "zone": "User_Zone",
+          "trust_level": "medium",
+          "classification_reason": "User device"
+        },
+        {
+          "name": "Unknown",
+          "mac": "e4:38:83:0d:36:e7",
+          "ip": "192.168.22.224",
+          "is_guest": false,
+          "is_wired": true,
+          "zone": "User_Zone",
+          "trust_level": "medium",
+          "classification_reason": "User device"
+        }
+      ]
+    },
+    "IoT_Zone": {
+      "device_count": 0,
+      "trust_level": "unknown",
+      "devices": []
+    },
+    "Guest_Zone": {
+      "device_count": 0,
+      "trust_level": "unknown",
+      "devices": []
+    }
+  },
+  "firewall_analysis": {
+    "total_rules": 32,
+    "enhanced_rules": 3,
+    "logging_enabled": 27,
+    "zone_protection": {
+      "management_protected": true,
+      "iot_restricted": true,
+      "guest_isolated": false
+    },
+    "rule_details": [
+      {
+        "name": "IoT_Internet_Restriction",
+        "action": "accept",
+        "ruleset": "LAN_IN",
+        "logging": true,
+        "enabled": true,
+        "src_address": "192.168.22.194/26",
+        "dst_address": null,
+        "protocol": "tcp",
+        "dst_port": "80,443"
+      },
+      {
+        "name": "Enhanced_Management_Access_Clean",
+        "action": "accept",
+        "ruleset": "LAN_IN",
+        "logging": false,
+        "enabled": true,
+        "src_address": null,
+        "dst_address": null,
+        "protocol": "all",
+        "dst_port": null
+      },
+      {
+        "name": "Enhanced_Security_Scan_Clean",
+        "action": "accept",
+        "ruleset": "LAN_IN",
+        "logging": false,
+        "enabled": true,
+        "src_address": null,
+        "dst_address": null,
+        "protocol": "tcp",
+        "dst_port": "443"
+      }
+    ]
+  },
+  "security_status": {
+    "zones_configured": 2,
+    "rules_active": 32,
+    "logging_enabled": 27,
+    "device_groups_active": 0
+  },
+  "evidence_of_working": {
+    "zone_based_groups": 5,
+    "enhanced_policies": 2,
+    "device_classification": 19,
+    "firewall_protection": {
+      "management_protected": true,
+      "iot_restricted": true,
+      "guest_isolated": false
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "name": "Enhanced_Network_Monitoring",
+  "enabled": true,
+  "monitoring_levels": {
+    "network_performance": "high",
+    "security_events": "high",
+    "device_health": "medium",
+    "traffic_analysis": "high"
+  },
+  "alert_channels": [
+    "log",
+    "email",
+    "webhook"
+  ],
+  "metrics_collection": {
+    "bandwidth_usage": true,
+    "latency_measurement": true,
+    "connection_count": true,
+    "security_events": true,
+    "device_status": true
+  },
+  "created_at": "2025-09-22T09:59:03.028151",
+  "status": "active"
+}

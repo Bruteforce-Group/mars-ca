@@ -1,0 +1,4 @@
+== Trying 192.168.22.1 192.168.22.194 mars.int.bozza.au ==
+HTTP:000
+== 192.168.22.1 192.168.22.194 mars.int.bozza.au ==
+HTTP:000

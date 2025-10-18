@@ -1,0 +1,5 @@
+SYSTEM: Darwin Boz-MacBook-Pro-M3-Max-2.local 25.0.0 Darwin Kernel Version 25.0.0: Mon Aug 25 21:16:39 PDT 2025; root:xnu-12377.1.9~3/RELEASE_ARM64_T6031 arm64
+SYSTEM: ProductName:		macOS
+SYSTEM: ProductVersion:		26.0
+SYSTEM: BuildVersion:		25A354
+SYSTEM: Apple M3 Max

@@ -1,0 +1,2 @@
+==== mars.int.bozza.au ====
+spawn ssh -o StrictHostKeyChecking=no -o PreferredAuthentications=password -o PubkeyAuthentication=no -o ConnectTimeout=8 root@ (hostname; date; which ubnt-device-info || true; ubnt-device-info 2>/dev/null || true; ip -4 addr; ip route; echo "Public IP: "; curl -s ifconfig.me || true; echo; traceroute -n -m 6 1.1.1.1 || true; traceroute -n -m 6 8.8.8.8 || true; echo "/etc/resolv.conf:"; cat /etc/resolv.conf 2>/dev/null || true; (nft list table inet ubios-nat || iptables -t nat -S || true))

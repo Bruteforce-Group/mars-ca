@@ -1,0 +1,54 @@
+== Ping 192.168.22.1 ==
+PING 192.168.22.1 (192.168.22.1): 56 data bytes
+Request timeout for icmp_seq 0
+
+--- 192.168.22.1 ping statistics ---
+2 packets transmitted, 0 packets received, 100.0% packet loss
+
+== curl -kI tests ==
+--- 192.168.22.1 ---
+--- 192.168.22.194 ---
+HTTP/2 200 
+server: nginx
+date: Tue, 23 Sep 2025 04:34:16 GMT
+content-type: text/html
+content-length: 899
+last-modified: Thu, 14 Aug 2025 16:57:07 GMT
+etag: "689e1563-383"
+expires: Tue, 23 Sep 2025 04:34:15 GMT
+cache-control: no-cache
+access-control-allow-credentials: false
+access-control-expose-headers: Content-Disposition, Content-Range, Filename, Location, Range, Upload-Length, Upload-Offset, X-Connection-Type, X-Csrf-Token, X-File-Id, X-Token-Expire-Time, X-Updated-Csrf-Token
+referrer-policy: no-referrer
+strict-transport-security: max-age=15552000; includeSubDomains
+x-content-type-options: nosniff
+x-dns-prefetch-control: off
+x-frame-options: SAMEORIGIN
+x-xss-protection: 1; mode=block
+x-robots-tag: noindex
+accept-ranges: bytes
+
+--- mars.int.bozza.au ---
+HTTP/2 200 
+server: nginx
+date: Tue, 23 Sep 2025 04:34:16 GMT
+content-type: text/html
+content-length: 899
+last-modified: Thu, 14 Aug 2025 16:57:07 GMT
+etag: "689e1563-383"
+expires: Tue, 23 Sep 2025 04:34:15 GMT
+cache-control: no-cache
+access-control-allow-credentials: false
+access-control-expose-headers: Content-Disposition, Content-Range, Filename, Location, Range, Upload-Length, Upload-Offset, X-Connection-Type, X-Csrf-Token, X-File-Id, X-Token-Expire-Time, X-Updated-Csrf-Token
+referrer-policy: no-referrer
+strict-transport-security: max-age=15552000; includeSubDomains
+x-content-type-options: nosniff
+x-dns-prefetch-control: off
+x-frame-options: SAMEORIGIN
+x-xss-protection: 1; mode=block
+x-robots-tag: noindex
+accept-ranges: bytes
+
+
+== openssl s_client SNI tests ==
+--- 192.168.22.1 ---

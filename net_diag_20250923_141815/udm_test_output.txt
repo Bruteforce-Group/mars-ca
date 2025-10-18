@@ -1,0 +1,57 @@
+🔍 Testing UniFi Network Application
+===================================
+Controller: 192.168.22.194
+API Key: ipZ-NZoE***
+Username: root
+
+
+1️⃣  Detecting controller type...
+GET https://192.168.22.194/manage/site-map
+Status: 200
+Headers: {'Server': 'nginx', 'Date': 'Tue, 23 Sep 2025 04:38:46 GMT', 'Content-Type': 'text/html', 'Content-Length': '899', 'Last-Modified': 'Thu, 14 Aug 2025 16:57:07 GMT', 'Connection': 'keep-alive', 'ETag': '"689e1563-383"', 'Expires': 'Tue, 23 Sep 2025 04:38:45 GMT', 'Cache-Control': 'no-cache', 'Access-Control-Allow-Credentials': 'false', 'Access-Control-Expose-Headers': 'Content-Disposition, Content-Range, Filename, Location, Range, Upload-Length, Upload-Offset, X-Connection-Type, X-Csrf-Token, X-File-Id, X-Token-Expire-Time, X-Updated-Csrf-Token', 'Referrer-Policy': 'no-referrer', 'Strict-Transport-Security': 'max-age=15552000; includeSubDomains', 'X-Content-Type-Options': 'nosniff', 'X-DNS-Prefetch-Control': 'off', 'X-Frame-Options': 'SAMEORIGIN', 'X-XSS-Protection': '1; mode=block', 'X-Robots-Tag': 'noindex', 'Accept-Ranges': 'bytes'}
+Cookies: {}
+Response (text): <!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="robots" content="noindex"><link rel="icon" href="/favicon.ico?v3" sizes="any"><link rel="icon" href="/favicon.svg?v3" type="image
+✅ Detected modern UniFi OS
+
+2️⃣  Testing modern authentication...
+GET https://192.168.22.194/api/users/self
+Status: 401
+Headers: {'Server': 'nginx', 'Date': 'Tue, 23 Sep 2025 04:38:46 GMT', 'Content-Type': 'application/json', 'Content-Length': '47', 'Connection': 'keep-alive', 'Referrer-Policy': 'no-referrer', 'Strict-Transport-Security': 'max-age=15552000; includeSubDomains', 'X-Content-Type-Options': 'nosniff', 'X-DNS-Prefetch-Control': 'off', 'X-Frame-Options': 'SAMEORIGIN', 'X-XSS-Protection': '1; mode=block', 'X-Robots-Tag': 'noindex', 'Set-Cookie': 'TOKEN=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT; samesite=none; secure; httponly; partitioned, TOKEN=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT; samesite=none; secure; httponly'}
+Cookies: {}
+Response: {
+  "error": {
+    "code": 401,
+    "message": "Unauthorized"
+  }
+}
+POST https://192.168.22.194/api/auth/login
+Status: 403
+Headers: {'Server': 'nginx', 'Date': 'Tue, 23 Sep 2025 04:38:46 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '94', 'Connection': 'keep-alive', 'X-Response-Time': '328ms', 'Access-Control-Allow-Credentials': 'false', 'Referrer-Policy': 'no-referrer', 'Strict-Transport-Security': 'max-age=15552000; includeSubDomains', 'X-Content-Type-Options': 'nosniff', 'X-DNS-Prefetch-Control': 'off', 'X-Frame-Options': 'SAMEORIGIN', 'X-XSS-Protection': '1; mode=block', 'X-Robots-Tag': 'noindex'}
+Cookies: {}
+Response: {
+  "code": "AUTHENTICATION_FAILED_ACCOUNT_LOCKED",
+  "message": "SSO Account locked",
+  "level": "debug"
+}
+
+3️⃣  Testing legacy API paths...
+
+Trying path: /api/s/default/stat/device
+GET https://192.168.22.194/api/s/default/stat/device
+Status: 401
+Headers: {'Server': 'nginx', 'Date': 'Tue, 23 Sep 2025 04:38:46 GMT', 'Content-Type': 'application/json', 'Content-Length': '47', 'Connection': 'keep-alive', 'Referrer-Policy': 'no-referrer', 'Strict-Transport-Security': 'max-age=15552000; includeSubDomains', 'X-Content-Type-Options': 'nosniff', 'X-DNS-Prefetch-Control': 'off', 'X-Frame-Options': 'SAMEORIGIN', 'X-XSS-Protection': '1; mode=block', 'X-Robots-Tag': 'noindex', 'Set-Cookie': 'TOKEN=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT; samesite=none; secure; httponly; partitioned, TOKEN=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT; samesite=none; secure; httponly'}
+Cookies: {}
+Response: {
+  "error": {
+    "code": 401,
+    "message": "Unauthorized"
+  }
+}
+
+Trying path: /v1/api/site/default/devices
+GET https://192.168.22.194/v1/api/site/default/devices
+Status: 200
+Headers: {'Server': 'nginx', 'Date': 'Tue, 23 Sep 2025 04:38:46 GMT', 'Content-Type': 'text/html', 'Content-Length': '899', 'Last-Modified': 'Thu, 14 Aug 2025 16:57:07 GMT', 'Connection': 'keep-alive', 'ETag': '"689e1563-383"', 'Expires': 'Tue, 23 Sep 2025 04:38:45 GMT', 'Cache-Control': 'no-cache', 'Access-Control-Allow-Credentials': 'false', 'Access-Control-Expose-Headers': 'Content-Disposition, Content-Range, Filename, Location, Range, Upload-Length, Upload-Offset, X-Connection-Type, X-Csrf-Token, X-File-Id, X-Token-Expire-Time, X-Updated-Csrf-Token', 'Referrer-Policy': 'no-referrer', 'Strict-Transport-Security': 'max-age=15552000; includeSubDomains', 'X-Content-Type-Options': 'nosniff', 'X-DNS-Prefetch-Control': 'off', 'X-Frame-Options': 'SAMEORIGIN', 'X-XSS-Protection': '1; mode=block', 'X-Robots-Tag': 'noindex', 'Accept-Ranges': 'bytes'}
+Cookies: {}
+Response (text): <!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="robots" content="noindex"><link rel="icon" href="/favicon.ico?v3" sizes="any"><link rel="icon" href="/favicon.svg?v3" type="image
+✅ Found working API path: /v1/api/site/default/devices

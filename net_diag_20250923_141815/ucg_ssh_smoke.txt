@@ -1,0 +1,3 @@
+spawn ssh -o StrictHostKeyChecking=no -o PreferredAuthentications=password -o PubkeyAuthentication=no -o ConnectTimeout=8 root@mars.int.bozza.au hostname; date
+root@mars.int.bozza.au's password: 
+Permission denied, please try again.

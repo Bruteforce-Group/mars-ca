@@ -1,0 +1,3 @@
+spawn ssh -o StrictHostKeyChecking=no -o PreferredAuthentications=password -o PubkeyAuthentication=no -o ConnectTimeout=8 root@mars.int.bozza.au logread | grep -i -E 'dhcp|udhcpc|lease|router' | tail -n 200
+root@mars.int.bozza.au's password: 
+bash: line 1: logread: command not found

@@ -1,0 +1,27 @@
+== Ping mars.int.bozza.au ==
+PING mars.int.bozza.au (192.168.22.194): 56 data bytes
+64 bytes from 192.168.22.194: icmp_seq=0 ttl=64 time=3.131 ms
+64 bytes from 192.168.22.194: icmp_seq=1 ttl=64 time=6.053 ms
+
+--- mars.int.bozza.au ping statistics ---
+2 packets transmitted, 2 packets received, 0.0% packet loss
+round-trip min/avg/max/stddev = 3.131/4.592/6.053/1.461 ms
+
+== Ping 192.168.22.194 ==
+PING 192.168.22.194 (192.168.22.194): 56 data bytes
+64 bytes from 192.168.22.194: icmp_seq=0 ttl=64 time=5.002 ms
+64 bytes from 192.168.22.194: icmp_seq=1 ttl=64 time=4.749 ms
+
+--- 192.168.22.194 ping statistics ---
+2 packets transmitted, 2 packets received, 0.0% packet loss
+round-trip min/avg/max/stddev = 4.749/4.875/5.002/0.127 ms
+
+== Port checks on 192.168.22.194 ==
+open 22
+open 443
+open 8443
+
+== Port checks on mars.int.bozza.au ==
+open 22
+open 443
+open 8443

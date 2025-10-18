@@ -1,0 +1,63 @@
+{
+  "timestamp": "2025-09-22T11:35:53.561985",
+  "firmware_version": "4.4.0",
+  "policy_engine_status": {
+    "api_available": true,
+    "legacy_system_available": true,
+    "zones_created": true,
+    "objects_created": true,
+    "rules_created": true,
+    "legacy_rules_created": true
+  },
+  "discovery_results": {
+    "policy_endpoints": {
+      "/proxy/network/api/s/default/rest/policy": {
+        "status_code": 400,
+        "available": true
+      },
+      "/proxy/network/api/s/default/rest/policyengine": {
+        "status_code": 400,
+        "available": true
+      },
+      "/proxy/network/api/s/default/rest/zone": {
+        "status_code": 400,
+        "available": true
+      },
+      "/proxy/network/api/s/default/rest/object": {
+        "status_code": 400,
+        "available": true
+      },
+      "/proxy/network/api/s/default/rest/policyrule": {
+        "status_code": 400,
+        "available": true
+      }
+    },
+    "legacy_system": {
+      "firewall_rules": 35,
+      "firewall_groups": 6
+    },
+    "api_availability": {
+      "policy_engine": true,
+      "legacy_firewall": true,
+      "legacy_groups": true
+    }
+  },
+  "configurations": {
+    "zones": 5,
+    "objects": 19,
+    "rules": 5,
+    "legacy_rules": 35
+  },
+  "files_created": [
+    "policy_engine_zones_20250922_113553.json",
+    "policy_engine_objects_20250922_113553.json",
+    "policy_engine_rules_20250922_113553.json"
+  ],
+  "recommendations": [
+    "Policy Engine API is not yet accessible via standard endpoints",
+    "Legacy firewall system is still operational and working",
+    "Configuration files created for future Policy Engine import",
+    "Legacy-compatible rules created for immediate functionality",
+    "Monitor for Policy Engine API availability in future firmware updates"
+  ]
+}

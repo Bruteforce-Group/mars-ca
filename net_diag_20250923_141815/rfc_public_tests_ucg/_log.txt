@@ -1,0 +1,36 @@
+spawn ssh -o StrictHostKeyChecking=no -o PreferredAuthentications=password -o PubkeyAuthentication=no -o ConnectTimeout=8 root@mars.int.bozza.au
+root@mars.int.bozza.au's password: 
+Last login: Tue Sep 23 01:05:42 2025 from 192.168.22.222
+P$f{"hook": "SourcedRcFileForWarp", "value": { "shell": "bash", "uname": "Linux", "tmux": false }}root@mars:~# mkdir -p /tmp/rfc_public_tests
+root@mars:~# <ue) > /tmp/rfc_public_tests/traceroute_10.0.0.1.txt
+root@mars:~# < || true) > /tmp/rfc_public_tests/ping_10.0.0.1.txt
+root@mars:~# <) > /tmp/rfc_public_tests/traceroute_172.16.0.1.txt
+root@mars:~# <| true) > /tmp/rfc_public_tests/ping_172.16.0.1.txt
+root@mars:~# < > /tmp/rfc_public_tests/traceroute_192.168.0.1.txt
+root@mars:~# < true) > /tmp/rfc_public_tests/ping_192.168.0.1.txt
+root@mars:~# < > /tmp/rfc_public_tests/traceroute_169.254.1.1.txt
+root@mars:~# < true) > /tmp/rfc_public_tests/ping_169.254.1.1.txt
+root@mars:~# <) > /tmp/rfc_public_tests/traceroute_100.64.0.1.txt
+root@mars:~# <| true) > /tmp/rfc_public_tests/ping_100.64.0.1.txt
+root@mars:~# <e) > /tmp/rfc_public_tests/traceroute_192.0.2.1.txt
+root@mars:~# <|| true) > /tmp/rfc_public_tests/ping_192.0.2.1.txt
+root@mars:~# <> /tmp/rfc_public_tests/traceroute_198.51.100.1.txt
+root@mars:~# <true) > /tmp/rfc_public_tests/ping_198.51.100.1.txt
+root@mars:~# < > /tmp/rfc_public_tests/traceroute_203.0.113.1.txt
+root@mars:~# < true) > /tmp/rfc_public_tests/ping_203.0.113.1.txt
+root@mars:~# <e) > /tmp/rfc_public_tests/traceroute_240.0.0.1.txt
+root@mars:~# <|| true) > /tmp/rfc_public_tests/ping_240.0.0.1.txt
+root@mars:~# <rue) > /tmp/rfc_public_tests/traceroute_1.1.1.1.txt
+root@mars:~# <1 || true) > /tmp/rfc_public_tests/ping_1.1.1.1.txt
+root@mars:~# <rue) > /tmp/rfc_public_tests/traceroute_8.8.8.8.txt
+root@mars:~# <8 || true) > /tmp/rfc_public_tests/ping_8.8.8.8.txt
+root@mars:~# <rue) > /tmp/rfc_public_tests/traceroute_9.9.9.9.txt
+root@mars:~# <9 || true) > /tmp/rfc_public_tests/ping_9.9.9.9.txt
+root@mars:~# </tmp/rfc_public_tests/traceroute_208.67.222.222.txt
+root@mars:~# <ue) > /tmp/rfc_public_tests/ping_208.67.222.222.txt
+root@mars:~# <rue) > /tmp/rfc_public_tests/traceroute_4.2.2.2.txt
+root@mars:~# <2 || true) > /tmp/rfc_public_tests/ping_4.2.2.2.txt
+root@mars:~# tar czf /tmp/rfc_public_tests.tgz -C /tmp rfc_public_tests
+root@mars:~# exit
+logout
+Connection to mars.int.bozza.au closed.

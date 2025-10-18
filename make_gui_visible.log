@@ -1,0 +1,15 @@
+2025-09-22 11:11:31,629 - INFO - Successfully authenticated for GUI visibility fix
+2025-09-22 11:11:31,629 - INFO - Fixing firewall groups visibility...
+2025-09-22 11:11:31,777 - INFO - ✅ Fixed group: Management_Devices
+2025-09-22 11:11:32,821 - INFO - ✅ Fixed group: Corporate_Devices
+2025-09-22 11:11:33,838 - INFO - ✅ Fixed group: User_Devices
+2025-09-22 11:11:34,856 - INFO - ✅ Fixed group: IoT_Devices
+2025-09-22 11:11:35,887 - INFO - ✅ Fixed group: Guest_Devices
+2025-09-22 11:11:36,892 - INFO - Group fixing completed: 5/5 groups fixed
+2025-09-22 11:11:36,892 - INFO - Creating visible VLANs...
+2025-09-22 11:11:36,910 - ERROR - ❌ Failed to create VLAN Management_VLAN: 400
+2025-09-22 11:11:38,923 - ERROR - ❌ Failed to create VLAN Corporate_VLAN: 400
+2025-09-22 11:11:40,936 - ERROR - ❌ Failed to create VLAN User_VLAN: 400
+2025-09-22 11:11:42,979 - ERROR - ❌ Failed to create VLAN IoT_VLAN: 400
+2025-09-22 11:11:44,988 - ERROR - ❌ Failed to create VLAN Guest_VLAN: 400
+2025-09-22 11:11:46,991 - INFO - VLAN creation completed: 0/5 VLANs created

@@ -1,0 +1,15 @@
+HTTP/2 401 
+server: nginx
+date: Tue, 23 Sep 2025 04:37:26 GMT
+content-type: application/json
+content-length: 47
+referrer-policy: no-referrer
+strict-transport-security: max-age=15552000; includeSubDomains
+x-content-type-options: nosniff
+x-dns-prefetch-control: off
+x-frame-options: SAMEORIGIN
+x-xss-protection: 1; mode=block
+x-robots-tag: noindex
+set-cookie: TOKEN=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT; samesite=none; secure; httponly; partitioned
+set-cookie: TOKEN=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT; samesite=none; secure; httponly
+

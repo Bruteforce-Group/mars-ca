@@ -1,0 +1,15 @@
+2025-09-22 09:39:00,735 - INFO - Successfully authenticated for simple transformation
+2025-09-22 09:39:00,735 - INFO - Creating device groups for zone-based policies...
+2025-09-22 09:39:01,082 - INFO - ✅ Created device group: Management_Devices
+2025-09-22 09:39:02,116 - INFO - ✅ Created device group: Corporate_Devices
+2025-09-22 09:39:03,158 - INFO - ✅ Created device group: User_Devices
+2025-09-22 09:39:04,191 - INFO - ✅ Created device group: IoT_Devices
+2025-09-22 09:39:05,447 - INFO - ✅ Created device group: Guest_Devices
+2025-09-22 09:39:06,450 - INFO - Device group creation completed: 5/5 groups created
+2025-09-22 09:39:06,450 - INFO - Deploying enhanced firewall policies...
+2025-09-22 09:39:06,487 - ERROR - ❌ Failed to deploy policy Enhanced_Management_Access: 400
+2025-09-22 09:39:07,501 - ERROR - ❌ Failed to deploy policy IoT_Internet_Restriction: 400
+2025-09-22 09:39:08,514 - ERROR - ❌ Failed to deploy policy Guest_Isolation: 400
+2025-09-22 09:39:09,525 - ERROR - ❌ Failed to deploy policy Enhanced_Security_Scan: 400
+2025-09-22 09:39:10,724 - ERROR - ❌ Failed to deploy policy Zero_Trust_Default_Deny: 400
+2025-09-22 09:39:11,724 - INFO - Policy deployment completed: 0/5 policies deployed

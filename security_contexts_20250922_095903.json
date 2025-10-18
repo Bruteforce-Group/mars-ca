@@ -1,0 +1,50 @@
+[
+  {
+    "name": "NetworkInfrastructure_Context",
+    "device_class": "NetworkInfrastructure",
+    "trust_level": "high",
+    "security_policies": [
+      "allow_specific",
+      "verify_always",
+      "encrypt_all"
+    ],
+    "risk_threshold": 0.3,
+    "monitoring_level": "high",
+    "created_at": "2025-09-22T09:59:03.027549",
+    "last_verified": "2025-09-22T09:59:03.027555",
+    "risk_score": 0.0,
+    "active_policies": 3,
+    "status": "active"
+  },
+  {
+    "name": "WirelessAccessPoint_Context",
+    "device_class": "WirelessAccessPoint",
+    "trust_level": "high",
+    "security_policies": [
+      "verify_always",
+      "encrypt_all"
+    ],
+    "risk_threshold": 0.3,
+    "monitoring_level": "high",
+    "created_at": "2025-09-22T09:59:03.027609",
+    "last_verified": "2025-09-22T09:59:03.027612",
+    "risk_score": 0.0,
+    "active_policies": 2,
+    "status": "active"
+  },
+  {
+    "name": "ClientDevice_Context",
+    "device_class": "ClientDevice",
+    "trust_level": "medium",
+    "security_policies": [
+      "verify_always"
+    ],
+    "risk_threshold": 0.5,
+    "monitoring_level": "medium",
+    "created_at": "2025-09-22T09:59:03.027652",
+    "last_verified": "2025-09-22T09:59:03.027654",
+    "risk_score": 0.0,
+    "active_policies": 1,
+    "status": "active"
+  }
+]

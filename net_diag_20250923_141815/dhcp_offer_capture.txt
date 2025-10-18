@@ -1,0 +1,2 @@
+spawn ssh -o StrictHostKeyChecking=no -o PreferredAuthentications=password -o PubkeyAuthentication=no -o ConnectTimeout=10 root@mars.int.bozza.au busybox udhcpc -i eth4 -n -q -t 2 -f -v -s /bin/true
+ssh: connect to host mars.int.bozza.au port 22: Connection refused

@@ -1,0 +1,509 @@
+{
+  "timestamp": "2025-09-21T23:58:00Z",
+  "controller": "192.168.22.194",
+  "networks": [
+    {
+      "id": "6816686ae027cb4dd9ef94e0",
+      "name": "Default",
+      "purpose": "corporate",
+      "vlan": null,
+      "subnet": "192.168.22.194/26"
+    },
+    {
+      "id": "689e15d12a5bd37435d03ba7",
+      "name": "WAN Magic",
+      "purpose": "wan_magic",
+      "vlan": null,
+      "subnet": null
+    },
+    {
+      "id": "68c65016c80a6c5ed3e029b8",
+      "name": "One-Click VPN",
+      "purpose": "remote-user-vpn",
+      "vlan": null,
+      "subnet": "192.168.8.1/24"
+    },
+    {
+      "id": "68cfae1bbb6d983afef8a2b4",
+      "name": "Corporate_Servers",
+      "purpose": "corporate",
+      "vlan": 10,
+      "subnet": "192.168.10.1/24"
+    },
+    {
+      "id": "68cfae1cbb6d983afef8a2b7",
+      "name": "User_Devices",
+      "purpose": "corporate",
+      "vlan": 20,
+      "subnet": "192.168.20.1/24"
+    },
+    {
+      "id": "68cfae1dbb6d983afef8a2bc",
+      "name": "Apple_IoT",
+      "purpose": "corporate",
+      "vlan": 30,
+      "subnet": "192.168.30.1/24"
+    },
+    {
+      "id": "68cfae1dbb6d983afef8a2bf",
+      "name": "General_IoT",
+      "purpose": "corporate",
+      "vlan": 40,
+      "subnet": "192.168.40.1/24"
+    },
+    {
+      "id": "68cfae1dbb6d983afef8a2c2",
+      "name": "Security_Cameras",
+      "purpose": "corporate",
+      "vlan": 50,
+      "subnet": "192.168.50.1/24"
+    },
+    {
+      "id": "68cfae1dbb6d983afef8a2c5",
+      "name": "Automotive",
+      "purpose": "corporate",
+      "vlan": 60,
+      "subnet": "192.168.60.1/24"
+    },
+    {
+      "id": "68cfae1ebb6d983afef8a2c8",
+      "name": "Print_Services",
+      "purpose": "corporate",
+      "vlan": 70,
+      "subnet": "192.168.70.1/24"
+    },
+    {
+      "id": "68cfae1ebb6d983afef8a2cb",
+      "name": "Guest_Network",
+      "purpose": "corporate",
+      "vlan": 80,
+      "subnet": "192.168.80.1/24"
+    },
+    {
+      "id": "68cfae1ebb6d983afef8a2ce",
+      "name": "Quarantine_Zone",
+      "purpose": "corporate",
+      "vlan": 90,
+      "subnet": "192.168.90.1/24"
+    },
+    {
+      "id": "68cfb06efbb7e57c48956f60",
+      "name": "MGMT_Infrastructure",
+      "purpose": "corporate",
+      "vlan": 5,
+      "subnet": "192.168.5.1/24"
+    }
+  ],
+  "firewall_groups": [
+    {
+      "id": "6866f5623d45930e80319768",
+      "name": "tailscale-derp-ips",
+      "group_type": "address-group"
+    },
+    {
+      "id": "68cfb1e5fbb7e57c48956fcd",
+      "name": "MGMT_Infrastructure_Devices",
+      "group_type": "address-group"
+    },
+    {
+      "id": "68cfb1e5fbb7e57c48956fd0",
+      "name": "Corporate_Server_Devices",
+      "group_type": "address-group"
+    },
+    {
+      "id": "68cfb1e5fbb7e57c48956fd3",
+      "name": "Mac_Computer_Devices",
+      "group_type": "address-group"
+    },
+    {
+      "id": "68cfb1e5fbb7e57c48956fd6",
+      "name": "iPhone_Mobile_Devices",
+      "group_type": "address-group"
+    },
+    {
+      "id": "68cfb1e5fbb7e57c48956fd9",
+      "name": "Apple_IoT_Devices",
+      "group_type": "address-group"
+    },
+    {
+      "id": "68cfb1e5fbb7e57c48956fdc",
+      "name": "General_IoT_Devices",
+      "group_type": "address-group"
+    },
+    {
+      "id": "68cfb1e5fbb7e57c48956fdf",
+      "name": "Security_Camera_Devices",
+      "group_type": "address-group"
+    },
+    {
+      "id": "68cfb1e5fbb7e57c48956fe2",
+      "name": "Automotive_Devices",
+      "group_type": "address-group"
+    },
+    {
+      "id": "68cfb1e5fbb7e57c48956fe5",
+      "name": "Printer_Devices",
+      "group_type": "address-group"
+    },
+    {
+      "id": "68cfb1e5fbb7e57c48956fe8",
+      "name": "Guest_Devices",
+      "group_type": "address-group"
+    },
+    {
+      "id": "68cfb1e5fbb7e57c48956feb",
+      "name": "Quarantine_Devices",
+      "group_type": "address-group"
+    },
+    {
+      "id": "68cfb1e5fbb7e57c48956fee",
+      "name": "Management_Ports",
+      "group_type": "port-group"
+    },
+    {
+      "id": "68cfb1e5fbb7e57c48956ff1",
+      "name": "Web_Services_Ports",
+      "group_type": "port-group"
+    },
+    {
+      "id": "68cfb1e5fbb7e57c48956ff4",
+      "name": "Printer_Ports",
+      "group_type": "port-group"
+    },
+    {
+      "id": "68cfb1e5fbb7e57c48956ff7",
+      "name": "Camera_Ports",
+      "group_type": "port-group"
+    },
+    {
+      "id": "68cfb1e5fbb7e57c48956ffa",
+      "name": "IoT_Basic_Ports",
+      "group_type": "port-group"
+    },
+    {
+      "id": "68cfb7e3fbb7e57c48957442",
+      "name": "Management_Infrastructure",
+      "group_type": "address-group"
+    },
+    {
+      "id": "68cfb7e3fbb7e57c48957445",
+      "name": "Corporate_Servers",
+      "group_type": "address-group"
+    },
+    {
+      "id": "68cfb7e3fbb7e57c48957448",
+      "name": "User_Workstations",
+      "group_type": "address-group"
+    },
+    {
+      "id": "68cfb7e3fbb7e57c4895744b",
+      "name": "Mobile_Devices",
+      "group_type": "address-group"
+    },
+    {
+      "id": "68cfb7e3fbb7e57c4895744e",
+      "name": "Apple_Ecosystem",
+      "group_type": "address-group"
+    },
+    {
+      "id": "68cfb7e3fbb7e57c48957451",
+      "name": "Smart_Home_IoT",
+      "group_type": "address-group"
+    },
+    {
+      "id": "68cfb7e3fbb7e57c48957454",
+      "name": "Security_Systems",
+      "group_type": "address-group"
+    },
+    {
+      "id": "68cfb7e3fbb7e57c48957457",
+      "name": "Automotive_Systems",
+      "group_type": "address-group"
+    },
+    {
+      "id": "68cfb7e3fbb7e57c4895745a",
+      "name": "Print_Services",
+      "group_type": "address-group"
+    },
+    {
+      "id": "68cfb7e3fbb7e57c4895745d",
+      "name": "Quarantine_Zone",
+      "group_type": "address-group"
+    }
+  ],
+  "firewall_rules": [
+    {
+      "id": "68c7ae82fa94de25fbbd99da",
+      "name": "Block_IPv4_Class_A_Private_WAN_IN",
+      "ruleset": "WAN_IN",
+      "action": "drop"
+    },
+    {
+      "id": "68c7ae83fa94de25fbbd99dd",
+      "name": "Block_IPv4_Class_A_Private_WAN_OUT",
+      "ruleset": "WAN_OUT",
+      "action": "drop"
+    },
+    {
+      "id": "68c7ae83fa94de25fbbd99e0",
+      "name": "Block_IPv4_Class_B_Private_WAN_IN",
+      "ruleset": "WAN_IN",
+      "action": "drop"
+    },
+    {
+      "id": "68c7ae83fa94de25fbbd99e3",
+      "name": "Block_IPv4_Class_B_Private_WAN_OUT",
+      "ruleset": "WAN_OUT",
+      "action": "drop"
+    },
+    {
+      "id": "68c7ae83fa94de25fbbd99e6",
+      "name": "Block_IPv4_Class_C_Private_WAN_IN",
+      "ruleset": "WAN_IN",
+      "action": "drop"
+    },
+    {
+      "id": "68c7ae83fa94de25fbbd99e9",
+      "name": "Block_IPv4_Class_C_Private_WAN_OUT",
+      "ruleset": "WAN_OUT",
+      "action": "drop"
+    },
+    {
+      "id": "68c7ae83fa94de25fbbd99ec",
+      "name": "Block_IPv4_Link_Local_WAN_IN",
+      "ruleset": "WAN_IN",
+      "action": "drop"
+    },
+    {
+      "id": "68c7ae83fa94de25fbbd99ef",
+      "name": "Block_IPv4_Link_Local_WAN_OUT",
+      "ruleset": "WAN_OUT",
+      "action": "drop"
+    },
+    {
+      "id": "68c7ae84fa94de25fbbd99f2",
+      "name": "Block_IPv4_Loopback_WAN_IN",
+      "ruleset": "WAN_IN",
+      "action": "drop"
+    },
+    {
+      "id": "68c7ae84fa94de25fbbd9a01",
+      "name": "Block_IPv4_Loopback_WAN_OUT",
+      "ruleset": "WAN_OUT",
+      "action": "drop"
+    },
+    {
+      "id": "68c7ae84fa94de25fbbd9a04",
+      "name": "Block_IPv4_Current_Network_WAN_IN",
+      "ruleset": "WAN_IN",
+      "action": "drop"
+    },
+    {
+      "id": "68c7ae84fa94de25fbbd9a07",
+      "name": "Block_IPv4_Current_Network_WAN_OUT",
+      "ruleset": "WAN_OUT",
+      "action": "drop"
+    },
+    {
+      "id": "68c7ae84fa94de25fbbd9a0a",
+      "name": "Block_IPv4_Multicast_WAN_IN",
+      "ruleset": "WAN_IN",
+      "action": "drop"
+    },
+    {
+      "id": "68c7ae84fa94de25fbbd9a0d",
+      "name": "Block_IPv4_Multicast_WAN_OUT",
+      "ruleset": "WAN_OUT",
+      "action": "drop"
+    },
+    {
+      "id": "68c7ae84fa94de25fbbd9a10",
+      "name": "Block_IPv4_Reserved_WAN_IN",
+      "ruleset": "WAN_IN",
+      "action": "drop"
+    },
+    {
+      "id": "68c7ae85fa94de25fbbd9a13",
+      "name": "Block_IPv4_Reserved_WAN_OUT",
+      "ruleset": "WAN_OUT",
+      "action": "drop"
+    },
+    {
+      "id": "68c7ae85fa94de25fbbd9a16",
+      "name": "Block_IPv4_Test_NET_1_WAN_IN",
+      "ruleset": "WAN_IN",
+      "action": "drop"
+    },
+    {
+      "id": "68c7ae85fa94de25fbbd9a19",
+      "name": "Block_IPv4_Test_NET_1_WAN_OUT",
+      "ruleset": "WAN_OUT",
+      "action": "drop"
+    },
+    {
+      "id": "68c7ae85fa94de25fbbd9a1c",
+      "name": "Block_IPv4_Test_NET_2_WAN_IN",
+      "ruleset": "WAN_IN",
+      "action": "drop"
+    },
+    {
+      "id": "68c7ae85fa94de25fbbd9a1f",
+      "name": "Block_IPv4_Test_NET_2_WAN_OUT",
+      "ruleset": "WAN_OUT",
+      "action": "drop"
+    },
+    {
+      "id": "68c7ae85fa94de25fbbd9a22",
+      "name": "Block_IPv4_Test_NET_3_WAN_IN",
+      "ruleset": "WAN_IN",
+      "action": "drop"
+    },
+    {
+      "id": "68c7ae86fa94de25fbbd9a25",
+      "name": "Block_IPv4_Test_NET_3_WAN_OUT",
+      "ruleset": "WAN_OUT",
+      "action": "drop"
+    },
+    {
+      "id": "68c7ae86fa94de25fbbd9a28",
+      "name": "Block_IPv4_Benchmarking_WAN_IN",
+      "ruleset": "WAN_IN",
+      "action": "drop"
+    },
+    {
+      "id": "68c7ae86fa94de25fbbd9a2b",
+      "name": "Block_IPv4_Benchmarking_WAN_OUT",
+      "ruleset": "WAN_OUT",
+      "action": "drop"
+    },
+    {
+      "id": "68c7af4ffa94de25fbbd9b04",
+      "name": "Block_IPv6_All_WAN_IN",
+      "ruleset": "WAN_IN",
+      "action": "drop"
+    },
+    {
+      "id": "68c7af4ffa94de25fbbd9b07",
+      "name": "Block_IPv6_All_WAN_OUT",
+      "ruleset": "WAN_OUT",
+      "action": "drop"
+    },
+    {
+      "id": "68c7af4ffa94de25fbbd9b0a",
+      "name": "Enhanced_IPv4_Class_A_Private_Enhanced_WAN_IN",
+      "ruleset": "WAN_IN",
+      "action": "drop"
+    },
+    {
+      "id": "68c7af4ffa94de25fbbd9b0d",
+      "name": "Enhanced_IPv4_Class_A_Private_Enhanced_WAN_OUT",
+      "ruleset": "WAN_OUT",
+      "action": "drop"
+    },
+    {
+      "id": "68c7af4ffa94de25fbbd9b10",
+      "name": "Enhanced_IPv4_Class_B_Private_Enhanced_WAN_IN",
+      "ruleset": "WAN_IN",
+      "action": "drop"
+    },
+    {
+      "id": "68c7af4ffa94de25fbbd9b13",
+      "name": "Enhanced_IPv4_Class_B_Private_Enhanced_WAN_OUT",
+      "ruleset": "WAN_OUT",
+      "action": "drop"
+    },
+    {
+      "id": "68c7af50fa94de25fbbd9b16",
+      "name": "Enhanced_IPv4_Class_C_Private_Enhanced_WAN_IN",
+      "ruleset": "WAN_IN",
+      "action": "drop"
+    },
+    {
+      "id": "68c7af50fa94de25fbbd9b19",
+      "name": "Enhanced_IPv4_Class_C_Private_Enhanced_WAN_OUT",
+      "ruleset": "WAN_OUT",
+      "action": "drop"
+    },
+    {
+      "id": "68c7af50fa94de25fbbd9b1c",
+      "name": "Enhanced_IPv4_Link_Local_Enhanced_WAN_IN",
+      "ruleset": "WAN_IN",
+      "action": "drop"
+    },
+    {
+      "id": "68c7af50fa94de25fbbd9b1f",
+      "name": "Enhanced_IPv4_Link_Local_Enhanced_WAN_OUT",
+      "ruleset": "WAN_OUT",
+      "action": "drop"
+    },
+    {
+      "id": "68c7af50fa94de25fbbd9b22",
+      "name": "Enhanced_IPv4_Loopback_Enhanced_WAN_IN",
+      "ruleset": "WAN_IN",
+      "action": "drop"
+    },
+    {
+      "id": "68c7af50fa94de25fbbd9b25",
+      "name": "Enhanced_IPv4_Loopback_Enhanced_WAN_OUT",
+      "ruleset": "WAN_OUT",
+      "action": "drop"
+    },
+    {
+      "id": "68c7af51fa94de25fbbd9b28",
+      "name": "Enhanced_IPv4_Current_Network_Enhanced_WAN_IN",
+      "ruleset": "WAN_IN",
+      "action": "drop"
+    },
+    {
+      "id": "68c7af51fa94de25fbbd9b2b",
+      "name": "Enhanced_IPv4_Current_Network_Enhanced_WAN_OUT",
+      "ruleset": "WAN_OUT",
+      "action": "drop"
+    },
+    {
+      "id": "68c7af51fa94de25fbbd9b2e",
+      "name": "Enhanced_IPv4_Multicast_Enhanced_WAN_IN",
+      "ruleset": "WAN_IN",
+      "action": "drop"
+    },
+    {
+      "id": "68c7af51fa94de25fbbd9b31",
+      "name": "Enhanced_IPv4_Multicast_Enhanced_WAN_OUT",
+      "ruleset": "WAN_OUT",
+      "action": "drop"
+    },
+    {
+      "id": "68c7af51fa94de25fbbd9b34",
+      "name": "Enhanced_IPv4_Reserved_Enhanced_WAN_IN",
+      "ruleset": "WAN_IN",
+      "action": "drop"
+    },
+    {
+      "id": "68c7af51fa94de25fbbd9b37",
+      "name": "Enhanced_IPv4_Reserved_Enhanced_WAN_OUT",
+      "ruleset": "WAN_OUT",
+      "action": "drop"
+    },
+    {
+      "id": "68c818176bacec2466ee5e32",
+      "name": "ALLOW: 172.16.6.0/24 IPv4 Subnet",
+      "ruleset": "LAN_IN",
+      "action": "accept"
+    },
+    {
+      "id": "68c818246bacec2466ee5e4f",
+      "name": "ALLOW: 172.16.6.0/24 IPv4 Subnet",
+      "ruleset": "LAN_IN",
+      "action": "accept"
+    },
+    {
+      "id": "68c818246bacec2466ee5e52",
+      "name": "ALLOW: IPv6 Traffic LAN_IN",
+      "ruleset": "LAN_IN",
+      "action": "accept"
+    }
+  ],
+  "devices": [],
+  "clients": [],
+  "cleanup_recommendations": {}
+}

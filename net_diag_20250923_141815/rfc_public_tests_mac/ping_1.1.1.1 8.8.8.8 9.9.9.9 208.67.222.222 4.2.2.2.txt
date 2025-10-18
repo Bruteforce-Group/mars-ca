@@ -1,0 +1,7 @@
+PING 1.1.1.1 8.8.8.8 9.9.9.9 208.67.222.222 4.2.2.2 (1.1.1.1): 56 data bytes
+64 bytes from 1.1.1.1: icmp_seq=0 ttl=58 time=2.569 ms
+64 bytes from 1.1.1.1: icmp_seq=1 ttl=58 time=2.135 ms
+
+--- 1.1.1.1 8.8.8.8 9.9.9.9 208.67.222.222 4.2.2.2 ping statistics ---
+2 packets transmitted, 2 packets received, 0.0% packet loss
+round-trip min/avg/max/stddev = 2.135/2.352/2.569/0.217 ms

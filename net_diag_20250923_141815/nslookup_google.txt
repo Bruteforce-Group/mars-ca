@@ -1,0 +1,6 @@
+Server:		1.1.1.1
+Address:	1.1.1.1#53
+
+Name:	google.com
+Address: 142.250.71.78
+

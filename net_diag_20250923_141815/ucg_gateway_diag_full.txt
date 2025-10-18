@@ -1,0 +1,147 @@
+spawn ssh -o StrictHostKeyChecking=no -o PreferredAuthentications=password -o PubkeyAuthentication=no -o ConnectTimeout=8 root@mars.int.bozza.au
+root@mars.int.bozza.au's password: 
+Last login: Tue Sep 23 01:04:27 2025 from 192.168.22.222
+P$f{"hook": "SourcedRcFileForWarp", "value": { "shell": "bash", "uname": "Linux", "tmux": false }}root@mars:~# echo '=== HOST/DATE ==='
+=== HOST/DATE ===
+root@mars:~# hostname; date
+mars
+Tue Sep 23 01:05:42 EDT 2025
+root@mars:~# echo '
+> === IP ADDR/ROUTE ==='
+
+=== IP ADDR/ROUTE ===
+root@mars:~# (ip -4 addr || ifconfig)
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+13: eth3@switch0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP group default qlen 1000
+    inet 10.136.106.214/32 scope global eth3
+       valid_lft forever preferred_lft forever
+14: eth4@switch0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP group default qlen 1000
+    inet 124.187.49.228/32 scope global eth4
+       valid_lft forever preferred_lft forever
+16: br0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP group default qlen 1000
+    inet 192.168.22.194/26 scope global br0
+       valid_lft forever preferred_lft forever
+17: wgsrv1: <POINTOPOINT,NOARP,UP,LOWER_UP> mtu 1420 qdisc noqueue state UNKNOWN group default qlen 1000
+    inet 192.168.8.1/24 scope global wgsrv1
+       valid_lft forever preferred_lft forever
+root@mars:~# (ip route || netstat -rn)
+10.136.106.213 dev eth3 scope link 
+124.187.63.254 dev eth4 scope link 
+192.168.8.0/24 dev wgsrv1 proto kernel scope link src 192.168.8.1 
+192.168.22.192/26 dev br0 proto kernel scope link src 192.168.22.194 
+root@mars:~# echo '
+> === PUBLIC IP ==='
+
+=== PUBLIC IP ===
+root@mars:~# <2>&1 && curl -s ifconfig.me || echo 'curl missing')
+124.187.49.228root@mars:~# echo '
+> === TRACEROUTE 1.1.1.1 ==='
+
+=== TRACEROUTE 1.1.1.1 ===
+root@mars:~# (traceroute -n -m 6 1.1.1.1 || echo 'traceroute missing')
+traceroute to 1.1.1.1 (1.1.1.1), 6 hops max, 60 byte packets
+ 1  58.162.26.9  1.156 ms  1.042 ms  1.064 ms
+ 2  203.50.61.3  1.167 ms 203.50.61.1  1.169 ms 203.50.61.3  1.270 ms
+ 3  203.50.61.0  2.127 ms 203.50.61.2  1.186 ms 203.50.61.16  2.778 ms
+ 4  203.50.11.241  1.793 ms  1.998 ms 203.50.61.0  2.297 ms
+ 5  203.50.11.244  1.703 ms * *
+ 6  * 1.1.1.1  1.396 ms  1.276 ms
+root@mars:~# echo '
+> === TRACEROUTE 8.8.8.8 ==='
+
+=== TRACEROUTE 8.8.8.8 ===
+root@mars:~# (traceroute -n -m 6 8.8.8.8 || echo 'traceroute missing')
+traceroute to 8.8.8.8 (8.8.8.8), 6 hops max, 60 byte packets
+ 1  58.162.26.9  1.199 ms  1.153 ms  1.053 ms
+ 2  203.50.61.17  5.387 ms  5.384 ms 203.50.61.1  1.297 ms
+ 3  203.50.61.16  2.644 ms  1.325 ms 203.50.61.0  3.211 ms
+ 4  203.50.13.157  17.599 ms 203.50.13.155  13.499 ms  12.521 ms
+ 5  203.50.11.177  12.352 ms 203.50.11.173  15.855 ms 203.50.11.177  12.134 ms
+ 6  * 58.163.91.194  12.957 ms 58.163.91.202  15.783 ms
+root@mars:~# echo '
+> === DNS (/etc/resolv.conf) ==='
+
+=== DNS (/etc/resolv.conf) ===
+root@mars:~# cat /etc/resolv.conf
+# Generated automatically by ubios-udapi-server
+nameserver 127.0.0.1
+root@mars:~# echo '
+> === NAT RULES ==='
+
+=== NAT RULES ===
+root@mars:~# <at || iptables -t nat -S || echo 'no nft/iptables')
+-P PREROUTING ACCEPT
+-P INPUT ACCEPT
+-P OUTPUT ACCEPT
+-P POSTROUTING ACCEPT
+-N DNSFILTER
+-N UBIOS_BLOCKPAGE_JUMP
+-N UBIOS_DNSFILTER_JUMP
+-N UBIOS_DOH_JUMP
+-N UBIOS_HONEYPOT_NAT
+-N UBIOS_INPUT_JUMP
+-N UBIOS_OUTPUT_JUMP
+-N UBIOS_POSTROUTING_JUMP
+-N UBIOS_POSTROUTING_USER_HOOK
+-N UBIOS_PREROUTING_JUMP
+-N UBIOS_WF_PRE_JUMP
+-A PREROUTING -j UBIOS_PREROUTING_JUMP
+-A INPUT -j UBIOS_INPUT_JUMP
+-A OUTPUT -j UBIOS_OUTPUT_JUMP
+-A POSTROUTING -j UBIOS_POSTROUTING_JUMP
+-A DNSFILTER -p tcp -m set --match-set dnsfilter src -m tcp --dport 53 -j DNAT --to-destination 127.0.0.1:1053
+-A DNSFILTER -p udp -m set --match-set dnsfilter src -m udp --dport 53 -j DNAT --to-destination 127.0.0.1:1053
+-A DNSFILTER -p tcp -m set --match-set dnsfilterMac src -m tcp --dport 53 -j DNAT --to-destination 127.0.0.1:1053
+-A DNSFILTER -p udp -m set --match-set dnsfilterMac src -m udp --dport 53 -j DNAT --to-destination 127.0.0.1:1053
+-A UBIOS_BLOCKPAGE_JUMP -d 203.0.113.250/32 -p tcp -m tcp --dport 80 -j DNAT --to-destination 127.0.0.1:2080
+-A UBIOS_BLOCKPAGE_JUMP -d 203.0.113.250/32 -p tcp -m tcp --dport 443 -j DNAT --to-destination 127.0.0.1:20443
+-A UBIOS_DNSFILTER_JUMP -p tcp -m tcp --dport 53 -m mark --mark 0x760000/0x7e0000 -j DNSFILTER
+-A UBIOS_DNSFILTER_JUMP -p udp -m udp --dport 53 -m mark --mark 0x760000/0x7e0000 -j DNSFILTER
+-A UBIOS_DNSFILTER_JUMP -p tcp -m tcp --dport 53 -m mark --mark 0x1c0000/0x7e0000 -j RETURN
+-A UBIOS_DNSFILTER_JUMP -p udp -m udp --dport 53 -m mark --mark 0x1c0000/0x7e0000 -j RETURN
+-A UBIOS_DNSFILTER_JUMP -p tcp -m tcp --dport 53 -m mark --mark 0x1a0000/0x7e0000 -j RETURN
+-A UBIOS_DNSFILTER_JUMP -p udp -m udp --dport 53 -m mark --mark 0x1a0000/0x7e0000 -j RETURN
+-A UBIOS_DNSFILTER_JUMP -j DNSFILTER
+-A UBIOS_DOH_JUMP -p tcp -m tcp --dport 53 -m set --match-set UBIOS_doh-0 src -m mark --mark 0x740000/0x7e0000 -j REDIRECT --to-ports 35053
+-A UBIOS_DOH_JUMP -p udp -m udp --dport 53 -m set --match-set UBIOS_doh-0 src -m mark --mark 0x740000/0x7e0000 -j REDIRECT --to-ports 35053
+-A UBIOS_DOH_JUMP -j RETURN
+-A UBIOS_POSTROUTING_JUMP -j UBIOS_POSTROUTING_USER_HOOK
+-A UBIOS_POSTROUTING_USER_HOOK -o eth4 -m set ! --match-set UBIOS_ALL_ADDRv4_eth4 src -m state --state NEW -m limit --limit 50/sec --limit-burst 100 -j NFLOG --nflog-prefix  "68cfb372fbb7e57c48957191;PREDEFINED_MASQUERADE;NONE" --nflog-group 1 --nflog-threshold 16
+-A UBIOS_POSTROUTING_USER_HOOK -o eth4 -m set ! --match-set UBIOS_ALL_ADDRv4_eth4 src -m comment --comment 00000001095216660481 -j MASQUERADE
+-A UBIOS_POSTROUTING_USER_HOOK -o eth3 -m set ! --match-set UBIOS_ALL_ADDRv4_eth3 src -m state --state NEW -m limit --limit 50/sec --limit-burst 100 -j NFLOG --nflog-prefix  "68cf87beae5d995927329cd7;PREDEFINED_MASQUERADE;NONE" --nflog-group 1 --nflog-threshold 16
+-A UBIOS_POSTROUTING_USER_HOOK -o eth3 -m set ! --match-set UBIOS_ALL_ADDRv4_eth3 src -m comment --comment 00000001095216660482 -j MASQUERADE
+-A UBIOS_PREROUTING_JUMP -j UBIOS_DNSFILTER_JUMP
+-A UBIOS_PREROUTING_JUMP -j UBIOS_BLOCKPAGE_JUMP
+-A UBIOS_PREROUTING_JUMP -j UBIOS_DOH_JUMP
+-A UBIOS_PREROUTING_JUMP -j UBIOS_WF_PRE_JUMP
+-A UBIOS_WF_PRE_JUMP -i eth3 -j RETURN
+-A UBIOS_WF_PRE_JUMP -i eth4 -j RETURN
+-A UBIOS_WF_PRE_JUMP -p udp -m udp --dport 53 -m addrtype --dst-type LOCAL -m mark --mark 0x1c0000/0x7e0000 -j REDIRECT --to-ports 20202
+-A UBIOS_WF_PRE_JUMP -p tcp -m tcp --dport 53 -m addrtype --dst-type LOCAL -m mark --mark 0x1c0000/0x7e0000 -j REDIRECT --to-ports 20202
+-A UBIOS_WF_PRE_JUMP -p udp -m udp --dport 53 -m addrtype --dst-type LOCAL -m mark --mark 0x1a0000/0x7e0000 -j REDIRECT --to-ports 20201
+-A UBIOS_WF_PRE_JUMP -p tcp -m tcp --dport 53 -m addrtype --dst-type LOCAL -m mark --mark 0x1a0000/0x7e0000 -j REDIRECT --to-ports 20201
+root@mars:~# echo '
+> === SSH/FAIL2BAN STATUS ==='
+
+=== SSH/FAIL2BAN STATUS ===
+root@mars:~# <| netstat -tlnp | grep ':22' || echo 'no listener')
+LISTEN 0      128                            0.0.0.0:22         0.0.0.0:*    users:(("sshd",pid=1930150,fd=3))                                                                                                   
+LISTEN 0      128                               [::]:22            [::]:*    users:(("sshd",pid=1930150,fd=4))                                                                                                   
+root@mars:~# <swordAuthentication)' /etc/ssh/sshd_config || true)
+PermitRootLogin yes
+PasswordAuthentication yes
+root@mars:~# (fail2ban-client status sshd 2>/dev/null || echo 'no fail2ban')
+Status for the jail: sshd
+|- Filter
+|  |- Currently failed:	0
+|  |- Total failed:	0
+|  `- File list:	/var/log/auth.log
+`- Actions
+   |- Currently banned:	0
+   |- Total banned:	0
+   `- Banned IP list:	
+root@mars:~# exit
+logout
+Connection to mars.int.bozza.au closed.

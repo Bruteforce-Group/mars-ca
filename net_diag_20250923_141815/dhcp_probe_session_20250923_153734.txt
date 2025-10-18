@@ -1,0 +1,29 @@
+spawn ssh -o StrictHostKeyChecking=no -o PreferredAuthentications=password -o PubkeyAuthentication=no -o ConnectTimeout=10 root@mars.int.bozza.au
+root@mars.int.bozza.au's password: 
+Last login: Tue Sep 23 01:33:38 2025 from 192.168.22.222
+P$f{"hook": "SourcedRcFileForWarp", "value": { "shell": "bash", "uname": "Linux", "tmux": false }}root@mars:~# set -e
+root@mars:~# echo '=== Pre-state ==='
+=== Pre-state ===
+root@mars:~# ip -4 addr show dev eth4; echo; ip route get 1.1.1.1 || true
+14: eth4@switch0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP group default qlen 1000
+    inet 124.187.49.228/32 scope global eth4
+       valid_lft forever preferred_lft forever
+
+1.1.1.1 via 124.187.63.254 dev eth4 table 201.eth4 src 124.187.49.228 uid 0 
+    cache 
+root@mars:~# echo '
+> === Running non-invasive udhcpc probe ==='
+
+=== Running non-invasive udhcpc probe ===
+root@mars:~# <-s /bin/true -v) > /tmp/dhcp_probe.log 2>&1 || true
+root@mars:~# echo '
+> === Capturing logs and routes ==='
+
+=== Capturing logs and routes ===
+root@mars:~# <dhcp|lease') > /tmp/dhcp_logs_tail.txt 2>&1 || true
+root@mars:~# <le all | sed -n '1,120p' > /tmp/dhcp_routes_all.txt
+root@mars:~# echo 'Done'
+Done
+root@mars:~# exit
+logout
+Connection to mars.int.bozza.au closed.

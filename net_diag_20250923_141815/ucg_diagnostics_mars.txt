@@ -1,0 +1,4 @@
+no such variable
+    (read trace on "env(HOST)")
+    invoked from within
+"set host "$env(HOST)""

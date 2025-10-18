@@ -1,0 +1,58 @@
+[
+  {
+    "name": "Allow_Management_to_All",
+    "policy_type": "firewall",
+    "action": "allow",
+    "src_zone": "Management_Zone",
+    "dst_zone": "any",
+    "protocol": "any",
+    "description": "Allow management zone to access all zones",
+    "logging": true,
+    "enabled": true
+  },
+  {
+    "name": "Allow_Corporate_to_Internet",
+    "policy_type": "firewall",
+    "action": "allow",
+    "src_zone": "Corporate_Zone",
+    "dst_zone": "internet",
+    "protocol": "any",
+    "description": "Allow corporate zone internet access",
+    "logging": true,
+    "enabled": true
+  },
+  {
+    "name": "Restrict_IoT_Access",
+    "policy_type": "firewall",
+    "action": "allow",
+    "src_zone": "IoT_Zone",
+    "dst_zone": "internet",
+    "protocol": "tcp",
+    "dst_port": "80,443",
+    "description": "Restrict IoT devices to HTTP/HTTPS only",
+    "logging": true,
+    "enabled": true
+  },
+  {
+    "name": "Isolate_Guest_Devices",
+    "policy_type": "firewall",
+    "action": "deny",
+    "src_zone": "Guest_Zone",
+    "dst_zone": "Management_Zone,Corporate_Zone,User_Zone",
+    "protocol": "any",
+    "description": "Isolate guest devices from internal zones",
+    "logging": true,
+    "enabled": true
+  },
+  {
+    "name": "Default_Deny_All",
+    "policy_type": "firewall",
+    "action": "deny",
+    "src_zone": "any",
+    "dst_zone": "any",
+    "protocol": "any",
+    "description": "Default deny all traffic",
+    "logging": true,
+    "enabled": true
+  }
+]

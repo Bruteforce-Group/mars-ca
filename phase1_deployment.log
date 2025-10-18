@@ -1,0 +1,47 @@
+2025-09-21 17:49:47,253 - INFO - 🚀 Starting Phase 1: Network Foundation Deployment
+2025-09-21 17:49:47,253 - INFO - ============================================================
+2025-09-21 17:49:47,450 - INFO - ✅ Connected to mars
+2025-09-21 17:49:47,460 - INFO - 📊 Found 5 existing networks
+2025-09-21 17:49:47,460 - INFO - 📊 Existing VLANs: None
+2025-09-21 17:49:47,460 - INFO - Creating VLAN 1: MGMT_Infrastructure
+2025-09-21 17:49:47,527 - ERROR - ❌ Failed to create VLAN 1: 400 - {"meta":{"rc":"error","msg":"api.err.InvalidPayload"},"data":[{"validationError":{},"rc":"error","msg":"api.err.InvalidValue"}]}
+2025-09-21 17:49:47,527 - ERROR -   ❌ VLAN 1 (MGMT_Infrastructure) - FAILED
+2025-09-21 17:49:47,527 - INFO - Creating VLAN 10: Corporate_Servers
+2025-09-21 17:49:47,943 - INFO - ✅ Successfully created VLAN 10: Corporate_Servers
+2025-09-21 17:49:47,943 - INFO -   ✅ VLAN 10 (Corporate_Servers) - SUCCESS
+2025-09-21 17:49:47,943 - INFO - Creating VLAN 20: User_Devices
+2025-09-21 17:49:48,977 - INFO - ✅ Successfully created VLAN 20: User_Devices
+2025-09-21 17:49:48,977 - INFO -   ✅ VLAN 20 (User_Devices) - SUCCESS
+2025-09-21 17:49:48,978 - INFO - Creating VLAN 30: Apple_IoT
+2025-09-21 17:49:49,331 - INFO - ✅ Successfully created VLAN 30: Apple_IoT
+2025-09-21 17:49:49,332 - INFO -   ✅ VLAN 30 (Apple_IoT) - SUCCESS
+2025-09-21 17:49:49,332 - INFO - Creating VLAN 40: General_IoT
+2025-09-21 17:49:49,445 - INFO - ✅ Successfully created VLAN 40: General_IoT
+2025-09-21 17:49:49,445 - INFO -   ✅ VLAN 40 (General_IoT) - SUCCESS
+2025-09-21 17:49:49,446 - INFO - Creating VLAN 50: Security_Cameras
+2025-09-21 17:49:49,595 - INFO - ✅ Successfully created VLAN 50: Security_Cameras
+2025-09-21 17:49:49,595 - INFO -   ✅ VLAN 50 (Security_Cameras) - SUCCESS
+2025-09-21 17:49:49,595 - INFO - Creating VLAN 60: Automotive
+2025-09-21 17:49:49,768 - INFO - ✅ Successfully created VLAN 60: Automotive
+2025-09-21 17:49:49,768 - INFO -   ✅ VLAN 60 (Automotive) - SUCCESS
+2025-09-21 17:49:49,769 - INFO - Creating VLAN 70: Print_Services
+2025-09-21 17:49:50,082 - INFO - ✅ Successfully created VLAN 70: Print_Services
+2025-09-21 17:49:50,082 - INFO -   ✅ VLAN 70 (Print_Services) - SUCCESS
+2025-09-21 17:49:50,082 - INFO - Creating VLAN 80: Guest_Network
+2025-09-21 17:49:50,203 - INFO - ✅ Successfully created VLAN 80: Guest_Network
+2025-09-21 17:49:50,203 - INFO -   ✅ VLAN 80 (Guest_Network) - SUCCESS
+2025-09-21 17:49:50,203 - INFO - Creating VLAN 90: Quarantine_Zone
+2025-09-21 17:49:50,318 - INFO - ✅ Successfully created VLAN 90: Quarantine_Zone
+2025-09-21 17:49:50,318 - INFO -   ✅ VLAN 90 (Quarantine_Zone) - SUCCESS
+2025-09-21 17:49:50,318 - INFO - ============================================================
+2025-09-21 17:49:50,318 - INFO - 📈 Phase 1 Deployment Summary:
+2025-09-21 17:49:50,318 - INFO -   ✅ Successfully created: 9 networks
+2025-09-21 17:49:50,318 - INFO -   ❌ Failed to create: 1 networks
+2025-09-21 17:49:50,318 - ERROR -   Failed networks: [(1, 'MGMT_Infrastructure')]
+2025-09-21 17:49:50,318 - INFO - 🎉 Phase 1 deployment completed!
+2025-09-21 17:49:50,318 - INFO - 📝 Next steps:
+2025-09-21 17:49:50,318 - INFO -   1. Verify all networks are accessible
+2025-09-21 17:49:50,318 - INFO -   2. Test DHCP is working on new VLANs
+2025-09-21 17:49:50,318 - INFO -   3. Confirm existing connectivity unchanged
+2025-09-21 17:49:50,318 - INFO -   4. Proceed to Phase 2 when ready
+Phase 1 deployment completed at Sun 21 Sep 2025 18:00:55 AEST

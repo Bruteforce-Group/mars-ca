@@ -1,0 +1,87 @@
+spawn ssh -o StrictHostKeyChecking=no -o PreferredAuthentications=password -o PubkeyAuthentication=no -o ConnectTimeout=8 root@mars.int.bozza.au echo '== ip route =='; ip route; echo; echo '== ip rule =='; ip rule; echo; echo '== ip route get 1.1.1.1 =='; ip route get 1.1.1.1; echo; echo '== table all (head) =='; ip route show table all | sed -n '1,80p'
+root@mars.int.bozza.au's password: 
+== ip route ==
+10.136.106.213 dev eth3 scope link 
+124.187.63.254 dev eth4 scope link 
+192.168.8.0/24 dev wgsrv1 proto kernel scope link src 192.168.8.1 
+192.168.22.192/26 dev br0 proto kernel scope link src 192.168.22.194 
+
+== ip rule ==
+0:	from all lookup local
+32000:	from all lookup main
+32500:	from all iif eth3 goto 32502
+32501:	from all fwmark 0x1c0000/0x7e0000 lookup 202.eth3
+32502:	from all iif eth4 goto 32504
+32503:	from all fwmark 0x1a0000/0x7e0000 lookup 201.eth4
+32504:	from 10.136.106.214 lookup 202.eth3
+32505:	from 124.187.49.228 lookup 201.eth4
+32765:	from all fwmark 0x10000/0x10000 lookup 251.blackhole
+32766:	from all lookup 201.eth4
+32767:	from all lookup default
+
+== ip route get 1.1.1.1 ==
+1.1.1.1 via 124.187.63.254 dev eth4 table 201.eth4 src 124.187.49.228 uid 0 
+    cache 
+
+== table all (head) ==
+default via 124.187.63.254 dev eth4 table 201.eth4 proto dhcp metric 200 
+default via 10.136.106.213 dev eth3 table 202.eth3 proto dhcp metric 200 
+blackhole default table 251.blackhole proto PBR 
+10.136.106.213 dev eth3 scope link 
+124.187.63.254 dev eth4 scope link 
+192.168.8.0/24 dev wgsrv1 proto kernel scope link src 192.168.8.1 
+192.168.22.192/26 dev br0 proto kernel scope link src 192.168.22.194 
+local 10.136.106.214 dev eth3 table local proto kernel scope host src 10.136.106.214 
+local 124.187.49.228 dev eth4 table local proto kernel scope host src 124.187.49.228 
+broadcast 127.0.0.0 dev lo table local proto kernel scope link src 127.0.0.1 
+local 127.0.0.0/8 dev lo table local proto kernel scope host src 127.0.0.1 
+local 127.0.0.1 dev lo table local proto kernel scope host src 127.0.0.1 
+broadcast 127.255.255.255 dev lo table local proto kernel scope link src 127.0.0.1 
+broadcast 192.168.8.0 dev wgsrv1 table local proto kernel scope link src 192.168.8.1 
+local 192.168.8.1 dev wgsrv1 table local proto kernel scope host src 192.168.8.1 
+broadcast 192.168.8.255 dev wgsrv1 table local proto kernel scope link src 192.168.8.1 
+broadcast 192.168.22.192 dev br0 table local proto kernel scope link src 192.168.22.194 
+local 192.168.22.194 dev br0 table local proto kernel scope host src 192.168.22.194 
+broadcast 192.168.22.255 dev br0 table local proto kernel scope link src 192.168.22.194 
+::1 dev lo proto kernel metric 256 pref medium
+2001:db8:1000::1 dev lo proto kernel metric 256 pref medium
+fe80::/64 dev switch0 proto kernel metric 256 pref medium
+fe80::/64 dev switch0.1 proto kernel metric 256 pref medium
+fe80::/64 dev eth4 proto kernel metric 256 pref medium
+fe80::/64 dev eth3 proto kernel metric 256 pref medium
+fe80::/64 dev eth2 proto kernel metric 256 pref medium
+fe80::/64 dev eth1 proto kernel metric 256 pref medium
+fe80::/64 dev eth0 proto kernel metric 256 pref medium
+fe80::/64 dev br0 proto kernel metric 256 pref medium
+fe80::/64 dev eth6 proto kernel metric 256 pref medium
+local ::1 dev lo table local proto kernel metric 0 pref medium
+local 2001:db8:1000::1 dev lo table local proto kernel metric 0 pref medium
+local 2001:db8:1000::fa dev dummy0 table local proto kernel metric 0 pref medium
+anycast fe80:: dev switch0.1 table local proto kernel metric 0 pref medium
+anycast fe80:: dev eth4 table local proto kernel metric 0 pref medium
+anycast fe80:: dev switch0 table local proto kernel metric 0 pref medium
+anycast fe80:: dev eth1 table local proto kernel metric 0 pref medium
+anycast fe80:: dev eth2 table local proto kernel metric 0 pref medium
+anycast fe80:: dev eth3 table local proto kernel metric 0 pref medium
+anycast fe80:: dev eth0 table local proto kernel metric 0 pref medium
+anycast fe80:: dev br0 table local proto kernel metric 0 pref medium
+anycast fe80:: dev eth6 table local proto kernel metric 0 pref medium
+local fe80::1c0b:8bff:fe10:c3cf dev switch0.1 table local proto kernel metric 0 pref medium
+local fe80::1c0b:8bff:fe10:c3cf dev switch0 table local proto kernel metric 0 pref medium
+local fe80::1e0b:8bff:fe10:c3ce dev eth0 table local proto kernel metric 0 pref medium
+local fe80::1e0b:8bff:fe10:c3cf dev eth1 table local proto kernel metric 0 pref medium
+local fe80::1e0b:8bff:fe10:c3d0 dev eth2 table local proto kernel metric 0 pref medium
+local fe80::1e0b:8bff:fe10:c3d1 dev eth3 table local proto kernel metric 0 pref medium
+local fe80::1e0b:8bff:fe10:c3d2 dev eth4 table local proto kernel metric 0 pref medium
+local fe80::1e0b:8bff:fe10:c3d3 dev br0 table local proto kernel metric 0 pref medium
+local fe80::1e0b:8bff:fe10:c3d4 dev eth6 table local proto kernel metric 0 pref medium
+multicast ff00::/8 dev switch0 table local proto kernel metric 256 pref medium
+multicast ff00::/8 dev switch0.1 table local proto kernel metric 256 pref medium
+multicast ff00::/8 dev eth4 table local proto kernel metric 256 pref medium
+multicast ff00::/8 dev eth3 table local proto kernel metric 256 pref medium
+multicast ff00::/8 dev eth2 table local proto kernel metric 256 pref medium
+multicast ff00::/8 dev eth1 table local proto kernel metric 256 pref medium
+multicast ff00::/8 dev eth0 table local proto kernel metric 256 pref medium
+multicast ff00::/8 dev br0 table local proto kernel metric 256 pref medium
+multicast ff00::/8 dev eth6 table local proto kernel metric 256 pref medium
+multicast ff00::/8 dev wgsrv1 table local proto kernel metric 256 pref medium

@@ -1,0 +1,64 @@
+2025-09-21 18:17:24,108 - INFO - 🚨 STARTING PHASE 3: ZERO-TRUST SECURITY ACTIVATION
+2025-09-21 18:17:24,108 - INFO - ============================================================
+2025-09-21 18:17:24,108 - INFO - ⚠️  HIGH IMPACT WARNING:
+2025-09-21 18:17:24,108 - INFO -    🔄 All devices will be moved to VLANs
+2025-09-21 18:17:24,108 - INFO -    🛡️  Zero-trust firewall rules will be activated
+2025-09-21 18:17:24,108 - INFO -    ⚡ Network communication will be restricted
+2025-09-21 18:17:24,109 - INFO -    📱 Some applications may stop working temporarily
+2025-09-21 18:17:24,109 - INFO - ============================================================
+2025-09-21 18:17:24,293 - INFO - ✅ Connected to mars
+2025-09-21 18:17:24,312 - INFO - 📊 Found 10 VLAN networks for assignment
+2025-09-21 18:17:24,313 - INFO - 
+🔄 Step 1: Moving devices to appropriate VLANs...
+2025-09-21 18:17:24,324 - INFO - 📊 Found 11 devices to classify and move
+2025-09-21 18:17:24,343 - ERROR - ❌ Failed to move upstairs---study: 404
+2025-09-21 18:17:24,350 - ERROR - ❌ Failed to move ControlAppleTV2: 404
+2025-09-21 18:17:24,357 - ERROR - ❌ Failed to move g5-pro: 404
+2025-09-21 18:17:24,364 - ERROR - ❌ Failed to move lounge-room: 404
+2025-09-21 18:17:24,370 - ERROR - ❌ Failed to move Boz-MBP-M3-Max: 404
+2025-09-21 18:17:24,379 - ERROR - ❌ Failed to move backup: 404
+2025-09-21 18:17:24,390 - ERROR - ❌ Failed to move Boz-MBP-M3-Max: 404
+2025-09-21 18:17:24,412 - ERROR - ❌ Failed to move truenas: 404
+2025-09-21 18:17:24,419 - ERROR - ❌ Failed to move ringring: 404
+2025-09-21 18:17:24,426 - ERROR - ❌ Failed to move ringring: 404
+2025-09-21 18:17:24,434 - ERROR - ❌ Failed to move driveway: 404
+2025-09-21 18:17:24,434 - INFO - 
+📊 Device Movement Summary:
+2025-09-21 18:17:24,434 - WARNING - 
+⚠️ Failed to move 11 devices:
+2025-09-21 18:17:24,434 - WARNING -      ❌ upstairs---study (UniFi Infrastructure)
+2025-09-21 18:17:24,434 - WARNING -      ❌ ControlAppleTV2 (Apple TV/IoT)
+2025-09-21 18:17:24,434 - WARNING -      ❌ g5-pro (UniFi Infrastructure)
+2025-09-21 18:17:24,434 - WARNING -      ❌ lounge-room (UniFi Infrastructure)
+2025-09-21 18:17:24,434 - WARNING -      ❌ Boz-MBP-M3-Max (Mac Computer)
+2025-09-21 18:17:24,434 - WARNING -      ❌ backup (UniFi Infrastructure)
+2025-09-21 18:17:24,434 - WARNING -      ❌ Boz-MBP-M3-Max (Mac Computer)
+2025-09-21 18:17:24,434 - WARNING -      ❌ truenas (Server)
+2025-09-21 18:17:24,434 - WARNING -      ❌ ringring (Security Camera)
+2025-09-21 18:17:24,434 - WARNING -      ❌ ringring (Security Camera)
+2025-09-21 18:17:24,434 - WARNING -      ❌ driveway (UniFi Infrastructure)
+2025-09-21 18:17:24,434 - INFO - 
+⏳ Step 2: Waiting for network changes to propagate...
+2025-09-21 18:17:39,440 - INFO - 
+🛡️ Step 3: Deploying zero-trust firewall rules...
+2025-09-21 18:17:39,440 - INFO - Creating firewall rule: Allow_Management_to_All
+2025-09-21 18:17:39,487 - ERROR - ❌ Failed to create rule Allow_Management_to_All: 400 - {"meta":{"rc":"error","rule_index":2000,"name":"Allow_Management_to_All","msg":"api.err.FirewallRuleIndexOutOfRange"},"data":[]}
+2025-09-21 18:17:39,488 - INFO - Creating firewall rule: Allow_DNS_All_to_Corporate
+2025-09-21 18:17:39,495 - ERROR - ❌ Failed to create rule Allow_DNS_All_to_Corporate: 400 - {"meta":{"rc":"error","rule_index":2001,"name":"Allow_DNS_All_to_Corporate","msg":"api.err.FirewallRuleIndexOutOfRange"},"data":[]}
+2025-09-21 18:17:39,496 - INFO - Creating firewall rule: Allow_Users_to_Corporate_Web
+2025-09-21 18:17:39,503 - ERROR - ❌ Failed to create rule Allow_Users_to_Corporate_Web: 400 - {"meta":{"rc":"error","rule_index":2002,"name":"Allow_Users_to_Corporate_Web","msg":"api.err.FirewallRuleIndexOutOfRange"},"data":[]}
+2025-09-21 18:17:39,503 - INFO - Creating firewall rule: Allow_AppleTV_Internet_Basic
+2025-09-21 18:17:39,510 - ERROR - ❌ Failed to create rule Allow_AppleTV_Internet_Basic: 400 - {"meta":{"rc":"error","rule_index":2003,"name":"Allow_AppleTV_Internet_Basic","msg":"api.err.FirewallRuleIndexOutOfRange"},"data":[]}
+2025-09-21 18:17:39,510 - INFO - Creating firewall rule: Allow_Cameras_to_Corporate
+2025-09-21 18:17:39,518 - ERROR - ❌ Failed to create rule Allow_Cameras_to_Corporate: 400 - {"meta":{"rc":"error","rule_index":2004,"name":"Allow_Cameras_to_Corporate","msg":"api.err.FirewallRuleIndexOutOfRange"},"data":[]}
+2025-09-21 18:17:39,518 - INFO - Creating firewall rule: Block_Inter_VLAN_Default
+2025-09-21 18:17:39,535 - ERROR - ❌ Failed to create rule Block_Inter_VLAN_Default: 400 - {"meta":{"rc":"error","msg":"api.err.InvalidPayload"},"data":[{"validationError":{},"rc":"error","msg":"api.err.InvalidValue"}]}
+2025-09-21 18:17:39,535 - INFO - 📊 Created 0/6 firewall rules
+2025-09-21 18:17:39,535 - ERROR - ⚠️ Some firewall rules could not be created
+2025-09-21 18:17:39,536 - INFO - 
+⏳ Step 4: Final system stabilization...
+2025-09-21 18:17:49,541 - INFO - ============================================================
+2025-09-21 18:17:49,541 - ERROR - ⚠️ PHASE 3 DEPLOYMENT COMPLETED WITH ISSUES
+2025-09-21 18:17:49,541 - ERROR - 📋 Some components may not be fully functional
+2025-09-21 18:17:49,541 - ERROR - 🔧 Review logs and consider rollback if needed
+Phase 3 hybrid deployment completed at Sun 21 Sep 2025 18:19:01 AEST

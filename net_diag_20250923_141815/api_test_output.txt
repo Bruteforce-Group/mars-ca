@@ -1,0 +1,47 @@
+🔍 Testing UniFi API Access
+===========================
+Controller: 192.168.22.194
+API Key: ipZ-NZoE***
+Username: root
+
+
+1️⃣  Testing basic connectivity...
+GET https://192.168.22.194/
+Status: 200
+Response (text): <!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="robots" content="noindex"><link rel="icon" href="/favicon.ico?v3" sizes="any"><link rel="icon" href="/favicon.svg?v3" type="image
+Headers: {'Server': 'nginx', 'Date': 'Tue, 23 Sep 2025 04:38:28 GMT', 'Content-Type': 'text/html', 'Content-Length': '899', 'Last-Modified': 'Thu, 14 Aug 2025 16:57:07 GMT', 'Connection': 'keep-alive', 'ETag': '"689e1563-383"', 'Expires': 'Tue, 23 Sep 2025 04:38:27 GMT', 'Cache-Control': 'no-cache', 'Access-Control-Allow-Credentials': 'false', 'Access-Control-Expose-Headers': 'Content-Disposition, Content-Range, Filename, Location, Range, Upload-Length, Upload-Offset, X-Connection-Type, X-Csrf-Token, X-File-Id, X-Token-Expire-Time, X-Updated-Csrf-Token', 'Referrer-Policy': 'no-referrer', 'Strict-Transport-Security': 'max-age=15552000; includeSubDomains', 'X-Content-Type-Options': 'nosniff', 'X-DNS-Prefetch-Control': 'off', 'X-Frame-Options': 'SAMEORIGIN', 'X-XSS-Protection': '1; mode=block', 'X-Robots-Tag': 'noindex', 'Accept-Ranges': 'bytes'}
+
+2️⃣  Testing API key authentication...
+GET https://192.168.22.194/api/s/default/stat/device
+Status: 404
+Response (text): Not Found
+Headers: {'Server': 'nginx', 'Date': 'Tue, 23 Sep 2025 04:38:29 GMT', 'Content-Type': 'text/plain; charset=utf-8', 'Content-Length': '9', 'Connection': 'keep-alive', 'X-Response-Time': '1ms', 'Access-Control-Allow-Credentials': 'false', 'Referrer-Policy': 'no-referrer', 'Strict-Transport-Security': 'max-age=15552000; includeSubDomains', 'X-Content-Type-Options': 'nosniff', 'X-DNS-Prefetch-Control': 'off', 'X-Frame-Options': 'SAMEORIGIN', 'X-XSS-Protection': '1; mode=block', 'X-Robots-Tag': 'noindex'}
+
+3️⃣  Testing modern authentication flow...
+POST https://192.168.22.194/api/auth/login
+Status: 403
+Response: {
+  "code": "AUTHENTICATION_FAILED_ACCOUNT_LOCKED",
+  "message": "SSO Account locked",
+  "level": "debug"
+}
+Headers: {'Server': 'nginx', 'Date': 'Tue, 23 Sep 2025 04:38:29 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '94', 'Connection': 'keep-alive', 'X-Response-Time': '491ms', 'Access-Control-Allow-Credentials': 'false', 'Referrer-Policy': 'no-referrer', 'Strict-Transport-Security': 'max-age=15552000; includeSubDomains', 'X-Content-Type-Options': 'nosniff', 'X-DNS-Prefetch-Control': 'off', 'X-Frame-Options': 'SAMEORIGIN', 'X-XSS-Protection': '1; mode=block', 'X-Robots-Tag': 'noindex'}
+
+4️⃣  Testing legacy authentication...
+POST https://192.168.22.194/api/login
+Status: 401
+Response: {
+  "error": {
+    "code": 401,
+    "message": "Unauthorized"
+  }
+}
+Headers: {'Server': 'nginx', 'Date': 'Tue, 23 Sep 2025 04:38:29 GMT', 'Content-Type': 'application/json', 'Content-Length': '47', 'Connection': 'keep-alive', 'Referrer-Policy': 'no-referrer', 'Strict-Transport-Security': 'max-age=15552000; includeSubDomains', 'X-Content-Type-Options': 'nosniff', 'X-DNS-Prefetch-Control': 'off', 'X-Frame-Options': 'SAMEORIGIN', 'X-XSS-Protection': '1; mode=block', 'X-Robots-Tag': 'noindex', 'Set-Cookie': 'TOKEN=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT; samesite=none; secure; httponly; partitioned, TOKEN=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT; samesite=none; secure; httponly'}
+
+❌ All authentication methods failed
+
+Troubleshooting steps:
+1. Check if username/password are correct
+2. Check if API key has proper permissions
+3. Try accessing the web interface manually
+4. Check controller logs for auth failures

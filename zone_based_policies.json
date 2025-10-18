@@ -1,0 +1,512 @@
+{
+  "zone_definitions": {
+    "trust_zones": {
+      "management_zone": {
+        "name": "Management Zone",
+        "description": "High-trust zone for network infrastructure",
+        "vlan_ids": [1],
+        "security_level": "high",
+        "trust_score": 100,
+        "devices": ["ucg_fiber", "switches", "access_points"],
+        "attributes": {
+          "unrestricted_access": true,
+          "monitoring_priority": "critical",
+          "backup_required": true,
+          "encryption_required": true
+        }
+      },
+      "corporate_zone": {
+        "name": "Corporate Zone", 
+        "description": "High-trust zone for business systems",
+        "vlan_ids": [10],
+        "security_level": "high",
+        "trust_score": 95,
+        "devices": ["servers", "admin_workstations"],
+        "attributes": {
+          "unrestricted_access": true,
+          "monitoring_priority": "high",
+          "backup_required": true,
+          "encryption_required": true
+        }
+      },
+      "user_zone": {
+        "name": "User Zone",
+        "description": "Medium-high trust zone for user devices",
+        "vlan_ids": [20],
+        "security_level": "medium_high",
+        "trust_score": 80,
+        "devices": ["mac_computers", "iphones", "laptops"],
+        "attributes": {
+          "controlled_access": true,
+          "monitoring_priority": "medium",
+          "backup_required": false,
+          "encryption_required": true
+        }
+      }
+    },
+    "semi_trust_zones": {
+      "iot_trusted_zone": {
+        "name": "IoT Trusted Zone",
+        "description": "Medium trust zone for Apple ecosystem devices",
+        "vlan_ids": [30],
+        "security_level": "medium",
+        "trust_score": 60,
+        "devices": ["apple_tv", "homepods", "apple_watch"],
+        "attributes": {
+          "limited_access": true,
+          "monitoring_priority": "medium",
+          "backup_required": false,
+          "encryption_required": false
+        }
+      },
+      "security_zone": {
+        "name": "Security Zone",
+        "description": "Medium trust zone for security devices",
+        "vlan_ids": [50],
+        "security_level": "medium",
+        "trust_score": 70,
+        "devices": ["ip_cameras", "nvr_systems"],
+        "attributes": {
+          "limited_access": true,
+          "monitoring_priority": "high",
+          "backup_required": true,
+          "encryption_required": false
+        }
+      },
+      "automotive_zone": {
+        "name": "Automotive Zone",
+        "description": "Medium trust zone for vehicle connectivity",
+        "vlan_ids": [60],
+        "security_level": "medium",
+        "trust_score": 50,
+        "devices": ["tesla", "car_chargers"],
+        "attributes": {
+          "limited_access": true,
+          "monitoring_priority": "low",
+          "backup_required": false,
+          "encryption_required": false
+        }
+      },
+      "print_zone": {
+        "name": "Print Zone",
+        "description": "Medium trust zone for printing services",
+        "vlan_ids": [70],
+        "security_level": "medium",
+        "trust_score": 40,
+        "devices": ["printers", "scanners"],
+        "attributes": {
+          "limited_access": true,
+          "monitoring_priority": "low",
+          "backup_required": false,
+          "encryption_required": false
+        }
+      }
+    },
+    "untrust_zones": {
+      "iot_general_zone": {
+        "name": "IoT General Zone",
+        "description": "Low trust zone for general IoT devices",
+        "vlan_ids": [40],
+        "security_level": "low",
+        "trust_score": 30,
+        "devices": ["tuya_devices", "smart_home"],
+        "attributes": {
+          "restricted_access": true,
+          "monitoring_priority": "high",
+          "backup_required": false,
+          "encryption_required": false
+        }
+      },
+      "guest_zone": {
+        "name": "Guest Zone",
+        "description": "Low trust zone for guest access",
+        "vlan_ids": [80],
+        "security_level": "low",
+        "trust_score": 20,
+        "devices": ["guest_devices"],
+        "attributes": {
+          "isolated_access": true,
+          "monitoring_priority": "high",
+          "backup_required": false,
+          "encryption_required": false
+        }
+      },
+      "quarantine_zone": {
+        "name": "Quarantine Zone",
+        "description": "Isolated zone for suspicious devices",
+        "vlan_ids": [90],
+        "security_level": "isolated",
+        "trust_score": 0,
+        "devices": ["quarantined_devices"],
+        "attributes": {
+          "no_access": true,
+          "monitoring_priority": "critical",
+          "backup_required": false,
+          "encryption_required": false
+        }
+      }
+    }
+  },
+  "zone_based_rules": {
+    "inter_zone_policies": {
+      "trust_to_trust": {
+        "name": "Trust Zone Communication",
+        "description": "Allow communication between high-trust zones",
+        "source_zones": ["management_zone", "corporate_zone"],
+        "destination_zones": ["management_zone", "corporate_zone", "user_zone"],
+        "action": "allow",
+        "protocols": ["tcp", "udp", "icmp"],
+        "ports": "any",
+        "logging": "connection_start_end",
+        "priority": 100
+      },
+      "trust_to_semi_trust": {
+        "name": "Trust to Semi-Trust Communication",
+        "description": "Allow management access to semi-trust zones",
+        "source_zones": ["management_zone", "corporate_zone"],
+        "destination_zones": ["iot_trusted_zone", "security_zone", "automotive_zone", "print_zone"],
+        "action": "allow",
+        "protocols": ["tcp", "udp"],
+        "ports": ["22", "23", "80", "443", "161", "162"],
+        "logging": "connection_start_end",
+        "priority": 200
+      },
+      "user_to_semi_trust": {
+        "name": "User to Semi-Trust Communication",
+        "description": "Allow user devices to access semi-trust zones",
+        "source_zones": ["user_zone"],
+        "destination_zones": ["iot_trusted_zone", "print_zone"],
+        "action": "allow",
+        "protocols": ["tcp", "udp"],
+        "ports": ["80", "443", "515", "631", "9100"],
+        "logging": "connection_start_end",
+        "priority": 300
+      },
+      "semi_trust_to_trust": {
+        "name": "Semi-Trust to Trust Communication",
+        "description": "Allow semi-trust zones to access trust zones",
+        "source_zones": ["security_zone"],
+        "destination_zones": ["corporate_zone"],
+        "action": "allow",
+        "protocols": ["tcp", "udp"],
+        "ports": ["80", "443", "554", "8080"],
+        "logging": "connection_start_end",
+        "priority": 400
+      },
+      "block_untrust_to_trust": {
+        "name": "Block Untrust to Trust",
+        "description": "Block untrust zones from accessing trust zones",
+        "source_zones": ["iot_general_zone", "guest_zone", "quarantine_zone"],
+        "destination_zones": ["management_zone", "corporate_zone"],
+        "action": "deny",
+        "protocols": "any",
+        "ports": "any",
+        "logging": "all_attempts",
+        "priority": 500
+      },
+      "block_cross_iot": {
+        "name": "Block Cross-IoT Communication",
+        "description": "Prevent IoT devices from communicating with each other",
+        "source_zones": ["iot_trusted_zone", "iot_general_zone", "automotive_zone"],
+        "destination_zones": ["iot_trusted_zone", "iot_general_zone", "automotive_zone"],
+        "action": "deny",
+        "protocols": "any",
+        "ports": "any",
+        "logging": "all_attempts",
+        "priority": 600
+      },
+      "quarantine_isolation": {
+        "name": "Quarantine Isolation",
+        "description": "Completely isolate quarantine zone",
+        "source_zones": ["quarantine_zone"],
+        "destination_zones": ["all"],
+        "action": "deny",
+        "protocols": "any",
+        "ports": "any",
+        "logging": "all_attempts",
+        "priority": 700,
+        "exceptions": ["management_zone"]
+      }
+    },
+    "internet_access_policies": {
+      "trust_zone_internet": {
+        "name": "Trust Zone Internet Access",
+        "description": "Full internet access for trust zones",
+        "source_zones": ["management_zone", "corporate_zone", "user_zone"],
+        "destination": "internet",
+        "action": "allow",
+        "protocols": "any",
+        "ports": "any",
+        "logging": "connection_start_end",
+        "priority": 100,
+        "content_filtering": false,
+        "rate_limiting": "unlimited"
+      },
+      "semi_trust_zone_internet": {
+        "name": "Semi-Trust Zone Internet Access",
+        "description": "Restricted internet access for semi-trust zones",
+        "source_zones": ["iot_trusted_zone", "security_zone", "automotive_zone", "print_zone"],
+        "destination": "internet",
+        "action": "allow",
+        "protocols": ["tcp", "udp"],
+        "ports": ["80", "443", "53", "123"],
+        "logging": "connection_start_end",
+        "priority": 200,
+        "content_filtering": "vendor_specific",
+        "rate_limiting": "per_device_10mbps"
+      },
+      "untrust_zone_internet": {
+        "name": "Untrust Zone Internet Access",
+        "description": "Limited internet access for untrust zones",
+        "source_zones": ["iot_general_zone"],
+        "destination": "internet",
+        "action": "allow",
+        "protocols": ["tcp", "udp"],
+        "ports": ["80", "443", "53"],
+        "logging": "all_connections",
+        "priority": 300,
+        "content_filtering": "strict",
+        "rate_limiting": "per_device_5mbps"
+      },
+      "guest_zone_internet": {
+        "name": "Guest Zone Internet Access",
+        "description": "Isolated internet access for guests",
+        "source_zones": ["guest_zone"],
+        "destination": "internet",
+        "action": "allow",
+        "protocols": ["tcp", "udp"],
+        "ports": ["80", "443", "53"],
+        "logging": "all_connections",
+        "priority": 400,
+        "content_filtering": "strict",
+        "rate_limiting": "per_device_25mbps",
+        "session_timeout": "4_hours",
+        "captive_portal": true
+      },
+      "quarantine_zone_internet": {
+        "name": "Quarantine Zone Internet Block",
+        "description": "Block internet access for quarantine zone",
+        "source_zones": ["quarantine_zone"],
+        "destination": "internet",
+        "action": "deny",
+        "protocols": "any",
+        "ports": "any",
+        "logging": "all_attempts",
+        "priority": 500,
+        "exceptions": ["security_update_servers", "time_servers"]
+      }
+    }
+  },
+  "object_oriented_networking": {
+    "network_objects": {
+      "device_objects": {
+        "management_device": {
+          "class": "NetworkDevice",
+          "inheritance": "base_device",
+          "attributes": {
+            "device_type": "infrastructure",
+            "trust_level": "high",
+            "monitoring_required": true,
+            "backup_required": true,
+            "encryption_required": true
+          },
+          "methods": {
+            "authenticate": "certificate_based",
+            "monitor": "continuous",
+            "backup": "daily",
+            "update": "maintenance_window"
+          }
+        },
+        "server_device": {
+          "class": "NetworkDevice",
+          "inheritance": "base_device",
+          "attributes": {
+            "device_type": "server",
+            "trust_level": "high",
+            "monitoring_required": true,
+            "backup_required": true,
+            "encryption_required": true
+          },
+          "methods": {
+            "authenticate": "certificate_based",
+            "monitor": "continuous",
+            "backup": "daily",
+            "update": "maintenance_window"
+          }
+        },
+        "user_device": {
+          "class": "NetworkDevice",
+          "inheritance": "base_device",
+          "attributes": {
+            "device_type": "endpoint",
+            "trust_level": "medium_high",
+            "monitoring_required": true,
+            "backup_required": false,
+            "encryption_required": true
+          },
+          "methods": {
+            "authenticate": "user_credentials",
+            "monitor": "periodic",
+            "backup": "user_initiated",
+            "update": "user_controlled"
+          }
+        },
+        "iot_device": {
+          "class": "NetworkDevice",
+          "inheritance": "base_device",
+          "attributes": {
+            "device_type": "iot",
+            "trust_level": "low",
+            "monitoring_required": true,
+            "backup_required": false,
+            "encryption_required": false
+          },
+          "methods": {
+            "authenticate": "device_certificate",
+            "monitor": "continuous",
+            "backup": "none",
+            "update": "vendor_controlled"
+          }
+        }
+      },
+      "policy_objects": {
+        "firewall_rule": {
+          "class": "PolicyRule",
+          "inheritance": "base_policy",
+          "attributes": {
+            "rule_id": "auto_generated",
+            "priority": "integer",
+            "action": "allow|deny",
+            "logging": "boolean",
+            "enabled": "boolean"
+          },
+          "methods": {
+            "create": "api_call",
+            "update": "api_call",
+            "delete": "api_call",
+            "validate": "rule_validation"
+          }
+        },
+        "zone_policy": {
+          "class": "PolicyRule",
+          "inheritance": "firewall_rule",
+          "attributes": {
+            "source_zone": "zone_name",
+            "destination_zone": "zone_name",
+            "inter_zone": "boolean"
+          },
+          "methods": {
+            "apply_zone_rules": "zone_validation",
+            "check_zone_access": "access_validation"
+          }
+        },
+        "qos_policy": {
+          "class": "PolicyRule",
+          "inheritance": "base_policy",
+          "attributes": {
+            "bandwidth_limit": "integer",
+            "priority": "integer",
+            "dscp_marking": "string",
+            "time_based": "boolean"
+          },
+          "methods": {
+            "apply_qos": "qos_validation",
+            "monitor_performance": "performance_monitoring"
+          }
+        }
+      },
+      "network_objects": {
+        "vlan_object": {
+          "class": "NetworkObject",
+          "inheritance": "base_network",
+          "attributes": {
+            "vlan_id": "integer",
+            "subnet": "cidr",
+            "gateway": "ip_address",
+            "dhcp_enabled": "boolean",
+            "zone_assignment": "zone_name"
+          },
+          "methods": {
+            "create_vlan": "api_call",
+            "assign_zone": "zone_assignment",
+            "configure_dhcp": "dhcp_configuration"
+          }
+        },
+        "firewall_group": {
+          "class": "NetworkObject",
+          "inheritance": "base_network",
+          "attributes": {
+            "group_name": "string",
+            "group_type": "address_group|port_group",
+            "members": "array",
+            "zone_assignment": "zone_name"
+          },
+          "methods": {
+            "create_group": "api_call",
+            "add_members": "member_management",
+            "assign_zone": "zone_assignment"
+          }
+        }
+      }
+    },
+    "inheritance_hierarchy": {
+      "base_network": {
+        "attributes": {
+          "name": "string",
+          "description": "string",
+          "enabled": "boolean"
+        },
+        "methods": {
+          "create": "api_call",
+          "update": "api_call",
+          "delete": "api_call"
+        }
+      },
+      "base_device": {
+        "inheritance": "base_network",
+        "attributes": {
+          "mac_address": "string",
+          "ip_address": "ip_address",
+          "device_type": "string",
+          "trust_level": "string"
+        },
+        "methods": {
+          "classify": "device_classification",
+          "assign_zone": "zone_assignment"
+        }
+      },
+      "base_policy": {
+        "inheritance": "base_network",
+        "attributes": {
+          "policy_name": "string",
+          "priority": "integer",
+          "enabled": "boolean"
+        },
+        "methods": {
+          "apply": "policy_application",
+          "validate": "policy_validation"
+        }
+      }
+    }
+  },
+  "implementation_settings": {
+    "zone_management": {
+      "auto_zone_assignment": true,
+      "zone_validation": true,
+      "conflict_resolution": "priority_based",
+      "zone_monitoring": true
+    },
+    "object_management": {
+      "auto_classification": true,
+      "inheritance_validation": true,
+      "object_lifecycle": "automated",
+      "dependency_tracking": true
+    },
+    "policy_enforcement": {
+      "rule_optimization": true,
+      "conflict_detection": true,
+      "performance_monitoring": true,
+      "compliance_checking": true
+    }
+  }
+}

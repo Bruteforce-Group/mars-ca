@@ -1,0 +1,11 @@
+ 1  unifi.int.bozza.au (192.168.22.194)  1.110 ms  0.785 ms  0.513 ms
+ 2  gateway.qb09.brisbane.asp.telstra.net (58.162.26.9)  1.847 ms  2.030 ms  1.805 ms
+ 3  ae20-20.woo-ice301.brisbane.telstra.net (203.50.61.3)  1.770 ms  19.713 ms
+    ae10.cha-ice301.brisbane.telstra.net (203.50.61.1)  26.699 ms
+ 4  bundle-ether25.woo-core30.brisbane.telstra.net (203.50.61.16)  3.645 ms
+    bundle-ether25.cha-core30.brisbane.telstra.net (203.50.61.0)  3.834 ms
+    ae20-20.cha-ice301.brisbane.telstra.net (203.50.61.2)  2.323 ms
+ 5  bundle-ether1.cha-edge903.brisbane.telstra.net (203.50.11.241)  3.051 ms  2.927 ms
+    bundle-ether1.woo-edge903.brisbane.telstra.net (203.50.11.243)  3.078 ms
+ 6  bundle-ether2.cha-edge903.brisbane.telstra.net (203.50.11.244)  2.946 ms
+    tel4323483.lnk.telstra.net (138.217.253.230)  3.210 ms  3.457 ms

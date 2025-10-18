@@ -1,0 +1,35 @@
+
+Hardware Port: Ethernet Adapter (en4)
+Device: en4
+Ethernet Address: 72:ca:40:0d:38:9e
+
+Hardware Port: Ethernet Adapter (en5)
+Device: en5
+Ethernet Address: 72:ca:40:0d:38:9f
+
+Hardware Port: Ethernet Adapter (en7)
+Device: en7
+Ethernet Address: 72:ca:40:0d:38:a0
+
+Hardware Port: Thunderbolt Bridge
+Device: bridge0
+Ethernet Address: 36:f9:76:a6:e0:c0
+
+Hardware Port: Wi-Fi
+Device: en0
+Ethernet Address: 60:3e:5f:8d:78:32
+
+Hardware Port: Thunderbolt 1
+Device: en1
+Ethernet Address: 36:f9:76:a6:e0:c0
+
+Hardware Port: Thunderbolt 2
+Device: en2
+Ethernet Address: 36:f9:76:a6:e0:c4
+
+Hardware Port: Thunderbolt 3
+Device: en3
+Ethernet Address: 36:f9:76:a6:e0:c8
+
+VLAN Configurations
+===================

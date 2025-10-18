@@ -1,0 +1,37 @@
+[
+  {
+    "name": "Management_Zone",
+    "description": "High-trust management zone for network infrastructure",
+    "trust_level": "high",
+    "security_policy": "allow_specific",
+    "monitoring_level": "high"
+  },
+  {
+    "name": "Corporate_Zone",
+    "description": "High-trust corporate zone for business systems",
+    "trust_level": "high",
+    "security_policy": "allow_specific",
+    "monitoring_level": "high"
+  },
+  {
+    "name": "User_Zone",
+    "description": "Medium-trust user zone for workstations",
+    "trust_level": "medium",
+    "security_policy": "verify_always",
+    "monitoring_level": "medium"
+  },
+  {
+    "name": "IoT_Zone",
+    "description": "Low-trust IoT zone for smart devices",
+    "trust_level": "low",
+    "security_policy": "isolate",
+    "monitoring_level": "low"
+  },
+  {
+    "name": "Guest_Zone",
+    "description": "Low-trust guest zone for visitors",
+    "trust_level": "low",
+    "security_policy": "isolate",
+    "monitoring_level": "low"
+  }
+]

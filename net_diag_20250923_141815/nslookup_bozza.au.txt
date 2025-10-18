@@ -1,0 +1,9 @@
+Server:		1.1.1.1
+Address:	1.1.1.1#53
+
+Non-authoritative answer:
+bozza.au	nameserver = jarred.ns.cloudflare.com.
+bozza.au	nameserver = jasmine.ns.cloudflare.com.
+
+Authoritative answers can be found from:
+

@@ -1,0 +1,58 @@
+2025-09-22 00:37:20,094 - INFO - [integration] Integrated network enhancements initialized
+2025-09-22 00:37:20,094 - INFO - Cross-system integration setup completed
+2025-09-22 00:37:20,094 - INFO - Metrics collection started
+2025-09-22 00:37:20,095 - WARNING - [alerts] Alert triggered: No Recent Metrics
+2025-09-22 00:37:20,095 - INFO - [monitoring] Enhanced monitoring system started
+2025-09-22 00:37:20,095 - INFO - Created alert: No Recent Metrics (warning)
+2025-09-22 00:37:20,095 - INFO - Enhanced monitoring system started
+2025-09-22 00:37:20,096 - INFO - Auto-deployment started
+2025-09-22 00:37:20,097 - INFO - Zero-trust monitoring started
+2025-09-22 00:37:20,100 - INFO - Generated integrated report: integrated_network_report_20250922_003720.json
+2025-09-22 00:37:20,190 - ERROR - Error getting network state: 'list' object has no attribute 'get'
+2025-09-22 00:37:20,191 - ERROR - Error monitoring network traffic: 'list' object has no attribute 'get'
+2025-09-22 00:37:20,191 - INFO - Network changes detected: {'initial_scan': True}
+2025-09-22 00:37:20,192 - INFO - [integration] Network changes detected: 1 change types
+2025-09-22 00:37:20,234 - ERROR - Failed to deploy rule 'Allow Management Traffic': 400 - {"meta":{"rc":"error","msg":"api.err.InvalidPayload"},"data":[{"rc":"error","msg":"api.err.InvalidPayload"}]}
+2025-09-22 00:37:50,372 - ERROR - Error getting network state: 'list' object has no attribute 'get'
+2025-09-22 00:37:50,372 - INFO - Network changes detected: {'timestamp': '2025-09-22T00:37:50.242413', 'device_changes': [], 'client_changes': [], 'network_changes': [], 'rule_changes': []}
+2025-09-22 00:37:50,372 - INFO - [integration] Network changes detected: 5 change types
+2025-09-22 00:37:50,385 - ERROR - Failed to deploy rule 'Allow Management Traffic': 400 - {"meta":{"rc":"error","msg":"api.err.InvalidPayload"},"data":[{"rc":"error","msg":"api.err.InvalidPayload"}]}
+2025-09-22 00:38:20,347 - ERROR - Error monitoring network traffic: 'list' object has no attribute 'get'
+2025-09-22 00:38:20,435 - ERROR - Error getting network state: 'list' object has no attribute 'get'
+2025-09-22 00:38:20,436 - INFO - Network changes detected: {'timestamp': '2025-09-22T00:38:20.390825', 'device_changes': [], 'client_changes': [], 'network_changes': [], 'rule_changes': []}
+2025-09-22 00:38:20,436 - INFO - [integration] Network changes detected: 5 change types
+2025-09-22 00:38:20,498 - ERROR - Failed to deploy rule 'Allow Management Traffic': 400 - {"meta":{"rc":"error","msg":"api.err.InvalidPayload"},"data":[{"rc":"error","msg":"api.err.InvalidPayload"}]}
+2025-09-22 00:38:30,122 - INFO - Metrics collection stopped
+2025-09-22 00:38:35,132 - INFO - [monitoring] Enhanced monitoring system stopped
+2025-09-22 00:38:35,133 - INFO - Enhanced monitoring system stopped
+2025-09-22 00:38:40,141 - INFO - Auto-deployment stopped
+2025-09-22 00:38:45,147 - INFO - Zero-trust monitoring stopped
+2025-09-22 08:37:06,152 - INFO - [integration] Integrated network enhancements initialized
+2025-09-22 08:37:06,154 - INFO - Cross-system integration setup completed
+2025-09-22 08:37:06,154 - INFO - Metrics collection started
+2025-09-22 08:37:06,154 - WARNING - [alerts] Alert triggered: No Recent Metrics
+2025-09-22 08:37:06,154 - INFO - [monitoring] Enhanced monitoring system started
+2025-09-22 08:37:06,154 - INFO - Created alert: No Recent Metrics (warning)
+2025-09-22 08:37:06,155 - INFO - Enhanced monitoring system started
+2025-09-22 08:37:06,155 - INFO - Auto-deployment started
+2025-09-22 08:37:06,155 - INFO - Zero-trust monitoring started
+2025-09-22 08:37:06,156 - INFO - Generated integrated report: integrated_network_report_20250922_083706.json
+2025-09-22 08:37:06,283 - ERROR - Error monitoring network traffic: 'list' object has no attribute 'get'
+2025-09-22 08:37:06,283 - ERROR - Error getting network state: 'list' object has no attribute 'get'
+2025-09-22 08:37:06,283 - INFO - Network changes detected: {'initial_scan': True}
+2025-09-22 08:37:06,283 - INFO - [integration] Network changes detected: 1 change types
+2025-09-22 08:37:06,338 - ERROR - Failed to deploy rule 'Allow Management Traffic': 400 - {"meta":{"rc":"error","msg":"api.err.InvalidPayload"},"data":[{"rc":"error","msg":"api.err.InvalidPayload"}]}
+2025-09-22 08:37:36,519 - ERROR - Error getting network state: 'list' object has no attribute 'get'
+2025-09-22 08:37:36,519 - INFO - Network changes detected: {'timestamp': '2025-09-22T08:37:36.343220', 'device_changes': [], 'client_changes': [], 'network_changes': [], 'rule_changes': []}
+2025-09-22 08:37:36,519 - INFO - [integration] Network changes detected: 5 change types
+2025-09-22 08:37:36,555 - ERROR - Failed to deploy rule 'Allow Management Traffic': 400 - {"meta":{"rc":"error","msg":"api.err.InvalidPayload"},"data":[{"rc":"error","msg":"api.err.InvalidPayload"}]}
+2025-09-22 08:38:06,342 - ERROR - Error monitoring network traffic: 'list' object has no attribute 'get'
+2025-09-22 08:38:06,633 - ERROR - Error getting network state: 'list' object has no attribute 'get'
+2025-09-22 08:38:06,633 - INFO - Network changes detected: {'timestamp': '2025-09-22T08:38:06.560522', 'device_changes': [], 'client_changes': [], 'network_changes': [], 'rule_changes': []}
+2025-09-22 08:38:06,633 - INFO - [integration] Network changes detected: 5 change types
+2025-09-22 08:38:06,677 - ERROR - Failed to deploy rule 'Allow Management Traffic': 400 - {"meta":{"rc":"error","msg":"api.err.InvalidPayload"},"data":[{"rc":"error","msg":"api.err.InvalidPayload"}]}
+2025-09-22 08:38:16,170 - INFO - Metrics collection stopped
+2025-09-22 08:38:21,175 - INFO - [monitoring] Enhanced monitoring system stopped
+2025-09-22 08:38:21,175 - INFO - Enhanced monitoring system stopped
+2025-09-22 08:38:26,177 - INFO - Auto-deployment stopped
+2025-09-22 08:38:31,179 - INFO - Zero-trust monitoring stopped

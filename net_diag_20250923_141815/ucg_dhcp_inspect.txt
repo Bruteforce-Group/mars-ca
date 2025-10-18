@@ -1,0 +1,14 @@
+spawn ssh -o StrictHostKeyChecking=no -o PreferredAuthentications=password -o PubkeyAuthentication=no -o ConnectTimeout=8 root@mars.int.bozza.au
+root@mars.int.bozza.au's password: 
+Last login: Tue Sep 23 01:30:33 2025 from 192.168.22.222
+P$f{"hook": "SourcedRcFileForWarp", "value": { "shell": "bash", "uname": "Linux", "tmux": false }}root@mars:~# echo '=== DHCP PROCESSES ==='
+=== DHCP PROCESSES ===
+root@mars:~# ps | egrep -i 'udhcpc|dhcp|netifd' || true
+echo '
+=== LEASE FILES ==='
+ls -l /run/udhcpc* /var/run/udhcpc* /var/lib/udhcpc* /var/lib/dhcp* 2>/dev/null || true
+root@mars:~# can't read "f": no such variable
+    while executing
+"-f \"$f\" "
+    invoked from within
+"send -- "for f in /run/udhcpc* /var/run/udhcpc* /var/lib/udhcpc*/* /var/lib/dhcp*/*; do [ -f \"$f\" ] && echo --- $f --- && (strings \"$f\" 2>/dev/nul..."

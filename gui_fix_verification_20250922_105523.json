@@ -1,0 +1,15 @@
+{
+  "timestamp": "2025-09-22T10:55:23.986349",
+  "fix_type": "gui_issue_resolution",
+  "removed_rules": 3,
+  "created_clean_rules": 2,
+  "remaining_problematic_rules": 2,
+  "total_firewall_rules": 32,
+  "fix_log": [
+    "Removed rule: Enhanced_Management_Access",
+    "Removed rule: Enhanced_Security_Scan",
+    "Removed rule: Zero_Trust_Default_Deny",
+    "Created clean rule: Enhanced_Management_Access_Clean",
+    "Created clean rule: Enhanced_Security_Scan_Clean"
+  ]
+}

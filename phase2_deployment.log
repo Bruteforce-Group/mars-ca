@@ -1,0 +1,19 @@
+2025-09-21 18:05:36,740 - INFO - 🚀 Starting Phase 2: Device Classification Deployment
+2025-09-21 18:05:36,740 - INFO - ============================================================
+2025-09-21 18:05:36,967 - INFO - ✅ Connected to mars
+2025-09-21 18:05:36,982 - INFO - 📊 Found 10 connected devices for classification analysis
+2025-09-21 18:05:36,982 - INFO - 📱 Current Device Analysis:
+2025-09-21 18:05:36,982 - INFO -    📱 upstairs---study     192.168.22.251  Ubiquiti Inc    28:70:4e:11:43:f7
+2025-09-21 18:05:36,982 - INFO -    📱 ControlAppleTV2      192.168.22.212  24              c8:d0:83:e4:75:33
+2025-09-21 18:05:36,982 - INFO -    📱 g5-pro               192.168.22.249  Ubiquiti Inc    28:70:4e:11:30:d5
+2025-09-21 18:05:36,982 - INFO -    📱 lounge-room          192.168.22.205  Ubiquiti Inc    28:70:4e:11:3d:dd
+2025-09-21 18:05:36,982 - INFO -    📱 Boz-MBP-M3-Max       Unknown                         8e:31:6a:16:a9:6a
+2025-09-21 18:05:36,982 - INFO -    📱 backup               192.168.22.213  Ubiquiti Inc    28:70:4e:11:41:c2
+2025-09-21 18:05:36,982 - INFO -    📱 Boz-MBP-M3-Max       192.168.22.241  1               40:86:cb:35:a0:98
+2025-09-21 18:05:36,982 - INFO -    📱 truenas              Unknown         24              88:ae:dd:65:a9:c3
+2025-09-21 18:05:36,982 - INFO -    📱 ringring             192.168.22.253  1               2c:cf:67:76:ad:69
+2025-09-21 18:05:36,982 - INFO -    📱 driveway             192.168.22.224  Ubiquiti Inc    e4:38:83:0d:36:e7
+2025-09-21 18:05:36,982 - INFO - 
+📊 Device Type Summary:
+2025-09-21 18:05:36,983 - ERROR - ❌ Deployment error: '<' not supported between instances of 'int' and 'str'
+Phase 2 deployment completed at Sun 21 Sep 2025 18:13:00 AEST

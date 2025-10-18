@@ -1,0 +1,16 @@
+2025-09-22 09:27:55,498 - INFO - Successfully authenticated for transformation
+2025-09-22 09:27:55,499 - INFO - Creating Zone-Based VLANs...
+2025-09-22 09:27:55,586 - ERROR - ❌ Failed to create zone Management_Zone: 400 - {"meta":{"rc":"error","msg":"api.err.InvalidPayload"},"data":[{"validationError":{},"rc":"error","msg":"api.err.InvalidValue"}]}
+2025-09-22 09:27:56,601 - ERROR - ❌ Failed to create zone Corporate_Zone: 400 - {"meta":{"rc":"error","msg":"api.err.InvalidPayload"},"data":[{"validationError":{},"rc":"error","msg":"api.err.InvalidValue"}]}
+2025-09-22 09:27:57,613 - ERROR - ❌ Failed to create zone User_Zone: 400 - {"meta":{"rc":"error","msg":"api.err.InvalidPayload"},"data":[{"validationError":{},"rc":"error","msg":"api.err.InvalidValue"}]}
+2025-09-22 09:27:58,625 - ERROR - ❌ Failed to create zone IoT_Zone: 400 - {"meta":{"rc":"error","msg":"api.err.InvalidPayload"},"data":[{"validationError":{},"rc":"error","msg":"api.err.InvalidValue"}]}
+2025-09-22 09:27:59,635 - ERROR - ❌ Failed to create zone Guest_Zone: 400 - {"meta":{"rc":"error","msg":"api.err.InvalidPayload"},"data":[{"validationError":{},"rc":"error","msg":"api.err.InvalidValue"}]}
+2025-09-22 09:28:00,638 - INFO - Zone creation completed: 0/5 zones created
+2025-09-22 09:34:33,042 - INFO - Successfully authenticated for transformation
+2025-09-22 09:34:33,042 - INFO - Creating Zone-Based VLANs...
+2025-09-22 09:34:33,095 - ERROR - ❌ Failed to create zone Management_Zone: 400 - {"meta":{"rc":"error","msg":"api.err.InvalidPayload"},"data":[{"validationError":{},"rc":"error","msg":"api.err.InvalidValue"}]}
+2025-09-22 09:34:34,109 - ERROR - ❌ Failed to create zone Corporate_Zone: 400 - {"meta":{"rc":"error","msg":"api.err.InvalidPayload"},"data":[{"validationError":{},"rc":"error","msg":"api.err.InvalidValue"}]}
+2025-09-22 09:34:35,123 - ERROR - ❌ Failed to create zone User_Zone: 400 - {"meta":{"rc":"error","msg":"api.err.InvalidPayload"},"data":[{"validationError":{},"rc":"error","msg":"api.err.InvalidValue"}]}
+2025-09-22 09:34:36,133 - ERROR - ❌ Failed to create zone IoT_Zone: 400 - {"meta":{"rc":"error","msg":"api.err.InvalidPayload"},"data":[{"validationError":{},"rc":"error","msg":"api.err.InvalidValue"}]}
+2025-09-22 09:34:37,142 - ERROR - ❌ Failed to create zone Guest_Zone: 400 - {"meta":{"rc":"error","msg":"api.err.InvalidPayload"},"data":[{"validationError":{},"rc":"error","msg":"api.err.InvalidValue"}]}
+2025-09-22 09:34:38,146 - INFO - Zone creation completed: 0/5 zones created

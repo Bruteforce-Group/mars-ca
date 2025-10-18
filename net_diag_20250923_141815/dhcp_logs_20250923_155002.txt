@@ -1,0 +1,2 @@
+spawn ssh -o StrictHostKeyChecking=no -o PreferredAuthentications=password -o PubkeyAuthentication=no -o ConnectTimeout=8 root@mars.int.bozza.au journalctl -n 400 | grep -i -E 'dhcp|udhcpc|lease|router'
+root@mars.int.bozza.au's password: 

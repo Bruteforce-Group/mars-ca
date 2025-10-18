@@ -1,0 +1,26 @@
+op = BOOTREPLY
+htype = 1
+flags = 0x0
+hlen = 6
+hops = 0
+xid = 0x15144cfe
+secs = 0
+ciaddr = 0.0.0.0
+yiaddr = 192.168.22.196
+siaddr = 192.168.22.194
+giaddr = 0.0.0.0
+chaddr = 66:c9:dc:d5:b7:72
+sname = 
+file = 
+options:
+Options count is 10
+dhcp_message_type (uint8): ACK 0x5
+server_identifier (ip): 192.168.22.194
+lease_time (uint32): 0x15180
+renewal_t1_time_value (uint32): 0xa8c0
+rebinding_t2_time_value (uint32): 0x12750
+subnet_mask (ip): 255.255.255.192
+domain_name (string): int.bozza.au
+domain_name_server (ip_mult): {192.168.22.194}
+router (ip_mult): {192.168.22.194}
+end (none): 

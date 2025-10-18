@@ -1,0 +1,16 @@
+2025-09-21 23:39:30,181 - INFO - Analyzing existing network objects...
+2025-09-21 23:39:30,615 - INFO - Successfully authenticated for cleanup operations
+2025-09-21 23:39:30,661 - INFO - Found 12 LAN networks
+2025-09-21 23:39:30,681 - INFO - Found 27 firewall groups
+2025-09-21 23:39:30,700 - INFO - Found 45 firewall rules
+2025-09-21 23:39:30,724 - INFO - Found 0 custom port profiles
+2025-09-21 23:39:30,734 - INFO - Found 2 WiFi networks
+2025-09-21 23:39:30,734 - INFO - Object analysis completed successfully
+2025-09-22 07:50:45,993 - INFO - Analyzing existing network objects...
+2025-09-22 07:50:46,231 - INFO - Successfully authenticated for cleanup operations
+2025-09-22 07:50:46,254 - INFO - Found 2 LAN networks
+2025-09-22 07:50:46,283 - INFO - Found 1 firewall groups
+2025-09-22 07:50:46,300 - INFO - Found 45 firewall rules
+2025-09-22 07:50:46,316 - INFO - Found 0 custom port profiles
+2025-09-22 07:50:46,328 - INFO - Found 2 WiFi networks
+2025-09-22 07:50:46,328 - INFO - Object analysis completed successfully

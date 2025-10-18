@@ -1,0 +1,7 @@
+ 1  unifi.int.bozza.au (192.168.22.194)  0.777 ms  0.634 ms  0.402 ms
+ 2  gateway.qb09.brisbane.asp.telstra.net (58.162.26.9)  10.780 ms  24.050 ms  15.358 ms
+ 3  ae10.woo-ice301.brisbane.telstra.net (203.50.61.17)  2.103 ms  2.071 ms
+    ae10.cha-ice301.brisbane.telstra.net (203.50.61.1)  1.969 ms
+ 4  * * *
+ 5  * * *
+ 6  * * *
